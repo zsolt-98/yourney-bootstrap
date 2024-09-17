@@ -5,7 +5,7 @@ import logo from "./assets/images/yourney-logo.png";
 function App() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg">
+      <nav className="navbar navbar-expand-lg navbar-dark fixed-top">
         <div className="container-xl px-5 py-4">
           <a href="index.html" className="navbar-brand">
             <img src={logo} width="225" alt="yourney logo" />
@@ -25,32 +25,32 @@ function App() {
               id="hamburger__ul--1"
             >
               <li className="nav-item ">
-                <a href="index.html" className="nav-link text-dark">
+                <a href="index.html" className="nav-link">
                   Home
                 </a>
               </li>
               <li className="nav-item">
-                <a href="index.html" className="nav-link text-dark">
+                <a href="index.html" className="nav-link">
                   About
                 </a>
               </li>
               <li className="nav-item">
-                <a href="index.html" className="nav-link text-dark">
+                <a href="index.html" className="nav-link">
                   Vehicles
                 </a>
               </li>
               <li className="nav-item">
-                <a href="index.html" className="nav-link text-dark">
+                <a href="index.html" className="nav-link">
                   Testimonials
                 </a>
               </li>
               <li className="nav-item">
-                <a href="index.html" className="nav-link text-dark">
+                <a href="index.html" className="nav-link">
                   Our team
                 </a>
               </li>
               <li className="nav-item">
-                <a href="index.html" className="nav-link text-dark">
+                <a href="index.html" className="nav-link">
                   Contact
                 </a>
               </li>
@@ -60,13 +60,13 @@ function App() {
               id="hamburger__ul--2"
             >
               <li className="nav-item">
-                <a href="" className="text-decoration-none  text-dark">
+                <a href="" className="text-decoration-none">
                   Sign in
                 </a>
               </li>
               <li className="nav-item">
                 <button
-                  className="btn btn-primary fs-4 fw-semibold px-4 py-3"
+                  className="btn btn-primary border-0 fs-4 fw-semibold "
                   id="hamburger__btn"
                 >
                   Register

@@ -11,4 +11,22 @@ $secondary: #0abf53;
 $light: #f8f8f8;
 $dark: #01112b;
 
+// Navbar
+$navbar-dark-color: $dark;
+$navbar-dark-hover-color: $secondary;
+$link-color: $dark;
+$link-hover-color: $secondary;
+
+// Buttons
+$button-padding-x: 15px;
+$button-padding-y: 10px;
+
+$btn-padding-x: $button-padding-x;
+$btn-padding-x-sm: $button-padding-x;
+$btn-padding-x-lg: $button-padding-x;
+
+$btn-padding-y: $button-padding-y;
+$btn-padding-y-sm: $button-padding-y;
+$btn-padding-y-lg: $button-padding-y;
+
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
