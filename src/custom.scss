@@ -12,10 +12,17 @@ $light: #f8f8f8;
 $dark: #01112b;
 
 // Navbar
-$navbar-dark-color: $dark;
-$navbar-dark-hover-color: $secondary;
+
+$navbar-light-color: $dark;
+$navbar-light-hover-color: $secondary;
 $link-color: $dark;
 $link-hover-color: $secondary;
+
+// Navbar Hamburger
+$navbar-toggler-padding-y: 0;
+$navbar-toggler-padding-x: 0;
+$navbar-toggler-focus-width: 0;
+$navbar-light-toggler-icon-bg: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$primary}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>") !default;
 
 // Buttons
 $button-padding-x: 15px;
@@ -23,10 +30,24 @@ $button-padding-y: 10px;
 
 $btn-padding-x: $button-padding-x;
 $btn-padding-x-sm: $button-padding-x;
-$btn-padding-x-lg: $button-padding-x;
+$btn-padding-x-lg: $button-padding-x * 1.5;
 
 $btn-padding-y: $button-padding-y;
 $btn-padding-y-sm: $button-padding-y;
-$btn-padding-y-lg: $button-padding-y;
+$btn-padding-y-lg: $button-padding-y * 1.5;
+
+// Spacers
+$spacer: 1rem !default;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+  6: $spacer * 6,
+  7: $spacer * 8,
+  8: $spacer * 12,
+) !default;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

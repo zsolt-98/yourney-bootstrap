@@ -1,0 +1,25 @@
+@media (max-width: 991px) {
+  #hamburger__ul--1,
+  #hamburger__ul--2,
+  #hamburger__btn {
+    font-size: 2.5rem !important;
+  }
+
+  #hamburger__ul--2 {
+    margin-top: 1.5rem !important;
+  }
+}
+
+// Hamburger icon
+.navbar-toggler-icon {
+  font-size: 2.5rem !important;
+}
+
+.navbar-toggler {
+  border: none !important;
+}
+
+// Register button
+.navbar .btn-primary:hover {
+  background-color: $secondary;
+}
