@@ -11,8 +11,9 @@ $secondary: #0abf53;
 $light: #f8f8f8;
 $dark: #01112b;
 
-// Navbar
+// $darker-light: darken($light, 10%);
 
+// Navbar
 $navbar-light-color: $dark;
 $navbar-light-hover-color: $secondary;
 $link-color: $dark;
@@ -29,11 +30,11 @@ $button-padding-x: 15px;
 $button-padding-y: 10px;
 
 $btn-padding-x: $button-padding-x;
-$btn-padding-x-sm: $button-padding-x;
+$btn-padding-x-sm: $button-padding-x * 0.75;
 $btn-padding-x-lg: $button-padding-x * 1.5;
 
 $btn-padding-y: $button-padding-y;
-$btn-padding-y-sm: $button-padding-y;
+$btn-padding-y-sm: $button-padding-y * 0.75;
 $btn-padding-y-lg: $button-padding-y * 1.5;
 
 // Spacers
