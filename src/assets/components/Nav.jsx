@@ -4,7 +4,7 @@ export default function Header() {
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light fixed-top p-0">
-        <div className="container-xl px-5 py-4">
+        <div className="container-xl px-5 py-4 ">
           <a href="index.html" className="navbar-brand">
             <img src={logo} width="225" alt="yourney logo" />
           </a>

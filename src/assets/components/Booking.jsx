@@ -1,9 +1,9 @@
 export default function Booking() {
   return (
     <>
-      <section className="booking__section bg-light">
+      <section className="booking__section pb-8 bg-light">
         <div className="container-xl px-5 py-4">
-          <div className="booking__content p-6 bg-white border border-0 rounded-3">
+          <div className="booking__content p-6 mb-5 bg-white border border-0 rounded-3">
             <h2 className="h1 fw-bold text-dark mb-5">Book your ride</h2>
             <form action="">
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">

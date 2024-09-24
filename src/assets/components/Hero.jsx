@@ -10,7 +10,7 @@ export default function Hero() {
             <img
               src="/src/assets/images/hero-background.png"
               alt=""
-              className="background__img z-index-0 d-none d-xl-block"
+              className="background__img  d-none d-xl-block"
             />
             <div>
               <div className="text-container d-flex flex-column justify-content-center gap-5 text-center text-xl-start">
