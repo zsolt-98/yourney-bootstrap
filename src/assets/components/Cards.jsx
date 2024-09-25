@@ -7,14 +7,14 @@ export default function Cards() {
         "
         >
           <div className="d-flex  flex-column  gap-4 text-light text-center">
-            <h3 className="display-2 fw-semibold ">
+            <h3 className="display-3 fw-semibold ">
               Where speed meets sophistication
             </h3>
-            <p className="h2 fw-light">
+            <p className="h2 fw-normal">
               Fast, easy bookings for an extraordinary driving experience
             </p>
           </div>
-          <div className="d-flex gap-6 flex-wrap justify-content-center mt-8">
+          <div className="cards__container d-flex gap-6 flex-wrap justify-content-center mt-8 pb-4">
             <div className="cards__card card bg-primary p-5 text-light align-items-center justify-content-evenly gap-3 text-center ">
               <div className="card__image--container">
                 <img

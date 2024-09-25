@@ -1,0 +1,8 @@
+.vehicles {
+  &__content {
+    & .car__models {
+      height: 200px;
+      background-color: red;
+    }
+  }
+}

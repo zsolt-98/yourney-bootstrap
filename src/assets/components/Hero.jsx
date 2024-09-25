@@ -4,7 +4,7 @@ export default function Hero() {
       <section className="hero__section">
         <div className="text-dark bg-light">
           <div
-            className="container-xl vh-100 px-5 py-4 d-flex justify-content-center justify-content-xl-between align-items-center"
+            className="container-xl  px-5 py-4 d-flex justify-content-center justify-content-xl-between align-items-center"
             id="hero__container"
           >
             <img
