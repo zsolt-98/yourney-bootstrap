@@ -20,16 +20,26 @@
   height: 100vh;
 }
 
-#hero__container .background__img {
+.image__container {
+  position: relative;
+}
+
+.background__img {
   position: absolute;
-  top: -136px;
-  right: -90px;
+  top: -400px;
+  right: -120px;
+  z-index: 1;
+}
+
+.car__img {
+  position: relative;
+  z-index: 999;
 }
 
 @media (max-width: 1399px) {
   #hero__container .background__img {
     transform: scale(0.8);
-    top: -100px;
-    right: -135px;
+    top: -405px;
+    right: -170px;
   }
 }

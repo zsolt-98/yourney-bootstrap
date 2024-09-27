@@ -7,11 +7,6 @@ export default function Hero() {
             className="container-xl  px-5 py-4 d-flex justify-content-center justify-content-xl-between align-items-center"
             id="hero__container"
           >
-            <img
-              src="/src/assets/images/hero-background.png"
-              alt=""
-              className="background__img  d-none d-xl-block"
-            />
             <div>
               <div className="text-container d-flex flex-column justify-content-center gap-5 text-center text-xl-start">
                 <h1 className="display-1 fw-bold text-nowrap">
@@ -66,12 +61,19 @@ export default function Hero() {
                 </div>
               </div>
             </div>
-            <div className="image-container w-75  d-none d-xl-block ">
-              <img
-                src="/src/assets/images/q2_sport_1280x1080px.png"
-                alt=""
-                className="w-100 z-index-1 position-relative"
-              />
+            <div className="w-75  d-none d-xl-block ">
+              <div className="image__container">
+                <img
+                  src="/src/assets/images/q2_sport_1280x1080px.png"
+                  alt=""
+                  className="car__img w-100"
+                />
+                <img
+                  src="/src/assets/images/hero-background.png"
+                  alt=""
+                  className="background__img  d-none d-xl-block"
+                />
+              </div>
             </div>
           </div>
         </div>

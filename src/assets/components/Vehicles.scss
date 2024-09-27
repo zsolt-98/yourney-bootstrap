@@ -1,8 +1,33 @@
-.vehicles {
-  &__content {
-    & .car__models {
-      height: 200px;
-      background-color: red;
+.car__models button:hover {
+  background-color: $secondary;
+}
+
+.table__container {
+  & table {
+    border: 2px solid $primary;
+  }
+
+  & th {
+    background-color: $primary !important;
+    color: $light !important;
+    font-weight: 600 !important;
+
+    & span {
+      font-weight: 300 !important;
     }
+  }
+
+  & th,
+  & td {
+    border: 2px solid $primary !important;
+    padding: 0.75rem 2.25rem !important;
+  }
+}
+
+.car__image--container {
+  width: 60rem;
+
+  & img {
+    width: 100%;
   }
 }
