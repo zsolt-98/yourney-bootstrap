@@ -1,7 +1,32 @@
-.car__models button:hover {
-  background-color: $secondary;
+// Button hover
+.car__models {
+  & button:hover {
+    background-color: $secondary;
+  }
+
+  // Media queries for the positioning of the vehicle select buttons
+  &--select button {
+    @media (max-width: 1399px) {
+      flex: 0 0 25% !important;
+    }
+
+    @media (max-width: 1199px) {
+      flex: 0 0 33.3333% !important;
+    }
+
+    @media (max-width: 991px) {
+      flex: 0 0 auto !important;
+    }
+  }
+
+  &--table {
+    @media (max-width: 767px) {
+      flex-wrap: wrap;
+    }
+  }
 }
 
+// Vehicle model table layout
 .table__container {
   & table {
     border: 2px solid $primary;
@@ -24,8 +49,14 @@
   }
 }
 
+// Vehicle image
 .car__image--container {
   width: 60rem;
+
+  @media (max-width: 991px) {
+    width: auto;
+    max-width: 55rem;
+  }
 
   & img {
     width: 100%;

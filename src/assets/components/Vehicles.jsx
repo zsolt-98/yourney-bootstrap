@@ -2,10 +2,10 @@ export default function Vehicles() {
   return (
     <>
       <section className="vehicles">
-        <div className="text-dark bg-light py-8 vh-100">
+        <div className="text-dark bg-light py-8">
           <div className="container-xl px-5 py-4">
             <div className="vehicles__content">
-              <div className="vehicles__content--heading d-flex flex-column  align-items-center text-center gap-4">
+              <div className="vehicles__content--heading d-flex flex-column  align-items-center text-center gap-4 mb-6 ">
                 <h3 className="h2 fw-bold text-dark text-capitalize">
                   Vehicle models
                 </h3>
@@ -15,8 +15,8 @@ export default function Vehicles() {
                   <br /> perfect for your next adventure or business trip.
                 </p>
               </div>
-              <div className="car__models d-flex justify-content-between ">
-                <div className="car__models--select d-flex flex-column gap-4 justify-content-center">
+              <div className="car__models d-flex justify-content-around flex-wrap">
+                <div className="car__models--select d-flex flex-column flex-lg-row gap-4 justify-content-center flex-xxl-column flex-wrap">
                   <button className="btn btn-secondary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
                     BMW 228i Gran Coupe
                   </button>
@@ -36,7 +36,7 @@ export default function Vehicles() {
                     Mercedes Benz SL
                   </button>
                 </div>
-                <div className="d-flex justify-content-between gap-0 gap-xxl-6 align-items-center">
+                <div className="car__models--table d-flex justify-content-around gap-5 align-items-center mt-6 mt-xxl-0">
                   <div className="car__image--container">
                     <img
                       src="/src/assets/images/2022-bmw-gran-coupe.png"
