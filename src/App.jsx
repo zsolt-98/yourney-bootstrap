@@ -4,6 +4,7 @@ import Hero from "./components/Hero.jsx";
 import Booking from "./components/Booking.jsx";
 import Cards from "./components/Cards.jsx";
 import Vehicles from "./components/Vehicles.jsx";
+import Banner from "./components/Banner.jsx";
 
 import "./App.scss";
 
@@ -15,6 +16,7 @@ function App() {
       <Booking></Booking>
       <Cards></Cards>
       <Vehicles></Vehicles>
+      <Banner></Banner>
     </>
   );
 }

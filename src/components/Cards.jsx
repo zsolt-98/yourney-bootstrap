@@ -29,7 +29,7 @@ export default function Cards() {
                 elevate your journey with unmatched performance and style
               </p>
             </div>
-            <div className="cards__card card bg-secondary p-5 text-dark align-items-center justify-content-evenly gap-3 text-center">
+            <div className="cards__card card bg-secondary p-5 text-light align-items-center justify-content-evenly gap-3 text-center">
               <div className="card__image--container">
                 <img src={selectDate} className="w-75 " alt="" />
               </div>
@@ -40,7 +40,7 @@ export default function Cards() {
                 finish!
               </p>
             </div>
-            <div className="cards__card card bg-light p-5 text-dark align-items-center justify-content-evenly gap-3 text-center">
+            <div className="cards__card card bg-light p-5 text-primary align-items-center justify-content-evenly gap-3 text-center">
               <div className="card__image--container">
                 <img src={hitTheRoad} className="w-75" alt="" />
               </div>
