@@ -1,3 +1,7 @@
+import selectCar from "../assets/images/card-select-car.png";
+import selectDate from "../assets/images/card-select-date.png";
+import hitTheRoad from "../assets/images/card-hit-the-road.png";
+
 export default function Cards() {
   return (
     <>
@@ -17,11 +21,7 @@ export default function Cards() {
           <div className="cards__container d-flex gap-6 flex-wrap justify-content-center mt-8 pb-4">
             <div className="cards__card card bg-primary p-5 text-light align-items-center justify-content-evenly gap-3 text-center ">
               <div className="card__image--container">
-                <img
-                  src="src/assets/images/card-select-car.png"
-                  className=" w-75"
-                  alt=""
-                />
+                <img src={selectCar} className=" w-75" alt="" />
               </div>
               <h4 className="card-title h1">Select Vehicle</h4>
               <p className="card-text h4">
@@ -31,11 +31,7 @@ export default function Cards() {
             </div>
             <div className="cards__card card bg-secondary p-5 text-dark align-items-center justify-content-evenly gap-3 text-center">
               <div className="card__image--container">
-                <img
-                  src="src/assets/images/card-select-date.png"
-                  className="w-75 "
-                  alt=""
-                />
+                <img src={selectDate} className="w-75 " alt="" />
               </div>
               <h4 className="card-title h1">Schedule Dates</h4>
               <p className="card-text h4">
@@ -46,11 +42,7 @@ export default function Cards() {
             </div>
             <div className="cards__card card bg-light p-5 text-dark align-items-center justify-content-evenly gap-3 text-center">
               <div className="card__image--container">
-                <img
-                  src="src/assets/images/card-hit-the-road.png"
-                  className="w-75"
-                  alt=""
-                />
+                <img src={hitTheRoad} className="w-75" alt="" />
               </div>
               <h4 className="card-title h1">Hit the road</h4>
               <p className="card-text h4">

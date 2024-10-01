@@ -1,9 +1,9 @@
 // import { useState } from "react";
-import Nav from "./assets/components/Nav.jsx";
-import Hero from "./assets/components/Hero.jsx";
-import Booking from "./assets/components/Booking.jsx";
-import Cards from "./assets/components/Cards.jsx";
-import Vehicles from "./assets/components/Vehicles.jsx";
+import Nav from "./components/Nav.jsx";
+import Hero from "./components/Hero.jsx";
+import Booking from "./components/Booking.jsx";
+import Cards from "./components/Cards.jsx";
+import Vehicles from "./components/Vehicles.jsx";
 
 import "./App.scss";
 

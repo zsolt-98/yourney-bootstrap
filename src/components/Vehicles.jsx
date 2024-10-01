@@ -1,3 +1,5 @@
+import BMW from "../assets/images/2022-bmw-gran-coupe.png";
+
 export default function Vehicles() {
   return (
     <>
@@ -10,9 +12,9 @@ export default function Vehicles() {
                   Vehicle models
                 </h3>
                 <h4 className="display-3 fw-bold">Our rental fleet</h4>
-                <p className="h2 fw-normal text-nowrap">
-                  Discover our curated collection of luxury vehicles,
-                  <br /> perfect for your next adventure or business trip.
+                <p className="h2  fw-normal ">
+                  Discover our curated collection of luxury vehicles, perfect
+                  for your next adventure or business trip.
                 </p>
               </div>
               <div className="car__models d-flex justify-content-around flex-wrap">
@@ -38,10 +40,7 @@ export default function Vehicles() {
                 </div>
                 <div className="car__models--table d-flex justify-content-around gap-5 align-items-center mt-6 mt-xxl-0">
                   <div className="car__image--container">
-                    <img
-                      src="/src/assets/images/2022-bmw-gran-coupe.png"
-                      alt=""
-                    />
+                    <img src={BMW} alt="" />
                   </div>
                   <div className="table__container text-center">
                     <table className="table table-bordered ">

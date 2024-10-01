@@ -1,9 +1,9 @@
 @import "custom.scss";
-@import "./assets/components/Nav.scss";
-@import "./assets/components/Hero.scss";
-@import "./assets/components/Booking.scss";
-@import "./assets/components/Cards.scss";
-@import "./assets/components/Vehicles.scss";
+@import "./components/Nav.scss";
+@import "./components/Hero.scss";
+@import "./components/Booking.scss";
+@import "./components/Cards.scss";
+@import "./components/Vehicles.scss";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
 *,
@@ -16,10 +16,10 @@
 
 html {
   font-size: 62.5%;
+  box-sizing: border-box;
 }
 
 body {
   font-family: "Poppins", sans-serif;
-  box-sizing: border-box;
   position: relative;
 }

@@ -1,4 +1,4 @@
-import logo from "../../assets/images/yourney-logo.png";
+import logo from "../assets/images/yourney-logo.png";
 
 export default function Header() {
   return (
