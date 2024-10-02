@@ -1,4 +1,5 @@
 import BMW from "../assets/images/2022-bmw-gran-coupe.png";
+import VehiclesSelectButton from "./VehiclesSelectButton.jsx";
 
 export default function Vehicles() {
   return (
@@ -11,7 +12,7 @@ export default function Vehicles() {
                 <h3 className="h2 fw-bold text-dark text-capitalize">
                   Vehicle models
                 </h3>
-                <h4 className="display-3 fw-bold">Our rental fleet</h4>
+                <h2 className="display-3 fw-bold">Our rental fleet</h2>
                 <p className="h2  fw-normal ">
                   Discover our curated collection of luxury vehicles, perfect
                   for your next adventure or business trip.
@@ -19,24 +20,14 @@ export default function Vehicles() {
               </div>
               <div className="car__models d-flex justify-content-around flex-wrap">
                 <div className="car__models--select d-flex flex-column flex-lg-row gap-4 justify-content-center flex-xxl-column flex-wrap">
-                  <button className="btn btn-secondary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
+                  <VehiclesSelectButton>
                     BMW 228i Gran Coupe
-                  </button>
-                  <button className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
-                    Range Rover Sport
-                  </button>
-                  <button className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
-                    Audi A8
-                  </button>
-                  <button className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
-                    Chevrolet Tahoe
-                  </button>
-                  <button className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
-                    Nissan Maxima
-                  </button>
-                  <button className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
-                    Mercedes Benz SL
-                  </button>
+                  </VehiclesSelectButton>
+                  <VehiclesSelectButton>Range Rover Sport</VehiclesSelectButton>
+                  <VehiclesSelectButton>Audi A8</VehiclesSelectButton>
+                  <VehiclesSelectButton>Chevrolet Tahoe</VehiclesSelectButton>
+                  <VehiclesSelectButton>Nissan Maxima</VehiclesSelectButton>
+                  <VehiclesSelectButton>Mercedes Benz SL</VehiclesSelectButton>
                 </div>
                 <div className="car__models--table d-flex justify-content-around gap-5 align-items-center mt-6 mt-xxl-0">
                   <div className="car__image--container">

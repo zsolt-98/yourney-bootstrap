@@ -5,6 +5,7 @@ import Booking from "./components/Booking.jsx";
 import Cards from "./components/Cards.jsx";
 import Vehicles from "./components/Vehicles.jsx";
 import Banner from "./components/Banner.jsx";
+import WhyChooseUs from "./components/WhyChooseUs.jsx";
 
 import "./App.scss";
 
@@ -17,6 +18,7 @@ function App() {
       <Cards></Cards>
       <Vehicles></Vehicles>
       <Banner></Banner>
+      <WhyChooseUs></WhyChooseUs>
     </>
   );
 }
