@@ -7,6 +7,7 @@ import Vehicles from "./components/Vehicles.jsx";
 import Banner from "./components/Banner.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
 import Testimonials from "./components/Testimonials.jsx";
+import FAQ from "./components/FAQ.jsx";
 
 import "./App.scss";
 
@@ -21,6 +22,7 @@ function App() {
       <Banner></Banner>
       <WhyChooseUs></WhyChooseUs>
       <Testimonials></Testimonials>
+      <FAQ></FAQ>
     </>
   );
 }

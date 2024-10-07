@@ -8,8 +8,8 @@ export default function Vehicles() {
         <div className="text-dark bg-light py-8">
           <div className="container-xl px-5 py-4">
             <div className="vehicles__content">
-              <div className="vehicles__content--heading d-flex flex-column  align-items-center text-center gap-4 mb-6 ">
-                <h2 className="display-3 fw-bold">Our rental fleet</h2>
+              <div className="vehicles__content--heading text-center mb-6 ">
+                <h2 className="display-3 fw-bold mb-4">Our rental fleet</h2>
                 <p className="h2  fw-normal ">
                   Discover our curated collection of luxury vehicles, perfect
                   for your next adventure or business trip.
