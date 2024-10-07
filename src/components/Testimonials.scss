@@ -1,12 +1,6 @@
 .testimonials {
   background-color: $light-darker;
 
-  &__card {
-    @media (max-width: 767px) {
-      // margin: 0;
-    }
-  }
-
   &__customer {
     & img {
       width: 7rem;
@@ -50,6 +44,7 @@
   }
 }
 
+// Carousel button position on smaller screens
 .carousel-control {
   &-prev {
     @media (max-width: 767px) {

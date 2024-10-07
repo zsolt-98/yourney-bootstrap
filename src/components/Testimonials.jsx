@@ -1,5 +1,8 @@
-import example from "../assets/images/2022-bmw-gran-coupe.png";
 import testimonialGuy from "../assets/images/testimonial-guy-1.png";
+import testimonialGirl1 from "../assets/images/testimonial-girl-1.png";
+import testimonialGirl2 from "../assets/images/testimonial-girl-2.png";
+
+import Testimonial from "./Testimonial.jsx";
 
 export default function Testimonials() {
   return (
@@ -27,35 +30,38 @@ export default function Testimonials() {
           </div>
           <div className="carousel-inner">
             <div className="carousel-item active ">
-              <div className="w-100 d-flex justify-content-center">
-                <div className="testimonials__card card w-75 bg-light p-3 p-md-5 border-0 ">
-                  <div className="card-body">
-                    <p className="card-text fs-4 fs-md-3 text-center ">
-                      &quot;Yourney exceeded my expectations with their
-                      impeccable service and pristine car selection. The whole
-                      experience was smooth and enjoyable. Highly
-                      recommend!!&quot;
-                    </p>
-                    <div className="testimonials__customer d-flex justify-content-center align-items-center gap-4  my-5 ">
-                      <img
-                        src={testimonialGuy}
-                        alt=""
-                        className="rounded-circle img-fluid"
-                      />
-                      <div className="testimonials__customer--text">
-                        <h4 className="h3 fw-semibold">Dave Charles</h4>
-                        <p className="h4 fw-normal">New York, USA</p>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <Testimonial
+                name="Dave Clark"
+                location="New York, USA"
+                photo={testimonialGuy}
+              >
+                &quot;Yourney exceeded my expectations with their impeccable
+                service and pristine car selection. The whole experience was
+                smooth and enjoyable. Highly recommend!&quot;
+              </Testimonial>
             </div>
             <div className="carousel-item ">
-              <img src={example} alt="" className="d-block w-50" />
+              <Testimonial
+                name="Lena Morozova"
+                location="Moscow, Russia"
+                photo={testimonialGirl1}
+              >
+                &quot;I treated myself to a luxury convertible for my birthday,
+                and it was a dream! The staff was incredibly helpful, and
+                driving the car was unforgettable. I’ll be renting from them
+                again!&quot;
+              </Testimonial>
             </div>
             <div className="carousel-item ">
-              <img src={example} alt="" className="d-block w-50" />
+              <Testimonial
+                name="Zoey Lawson"
+                location="London, UK"
+                photo={testimonialGirl2}
+              >
+                Yourney makes luxury car rentals enjoyable and accessible. The
+                booking was easy, and the car was immaculate. A truly memorable
+                experience!
+              </Testimonial>
             </div>
           </div>
           <button
