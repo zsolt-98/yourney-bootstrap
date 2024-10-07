@@ -60,7 +60,7 @@ export default function Testimonials() {
               >
                 &quot;Yourney makes luxury car rentals enjoyable and accessible.
                 The booking was quick and easy, and the car was immaculate. A
-                truly memorable experience!&quot;
+                truly memorable experience and top-notch service!&quot;
               </Testimonial>
             </div>
           </div>
