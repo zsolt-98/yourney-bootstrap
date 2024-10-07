@@ -3,7 +3,7 @@
 
   &__card {
     @media (max-width: 767px) {
-      margin: 0 3rem;
+      // margin: 0;
     }
   }
 
@@ -47,5 +47,18 @@
   @media (max-width: 575px) {
     width: 3.5rem !important;
     height: 3.5rem !important;
+  }
+}
+
+.carousel-control {
+  &-prev {
+    @media (max-width: 767px) {
+      justify-content: flex-start !important;
+    }
+  }
+  &-next {
+    @media (max-width: 767px) {
+      justify-content: flex-end !important;
+    }
   }
 }
