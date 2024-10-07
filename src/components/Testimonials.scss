@@ -43,4 +43,9 @@
   background-color: $light !important;
   border-radius: 50%;
   background-size: 80% 80% !important;
+
+  @media (max-width: 575px) {
+    width: 3.5rem !important;
+    height: 3.5rem !important;
+  }
 }
