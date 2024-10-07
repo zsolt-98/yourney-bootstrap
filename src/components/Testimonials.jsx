@@ -58,9 +58,9 @@ export default function Testimonials() {
                 location="London, UK"
                 photo={testimonialGirl2}
               >
-                Yourney makes luxury car rentals enjoyable and accessible. The
-                booking was easy, and the car was immaculate. A truly memorable
-                experience!
+                &quot;Yourney makes luxury car rentals enjoyable and accessible.
+                The booking was quick and easy, and the car was immaculate. A
+                truly memorable experience!&quot;
               </Testimonial>
             </div>
           </div>
