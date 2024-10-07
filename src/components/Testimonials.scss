@@ -1,0 +1,46 @@
+.testimonials {
+  background-color: $light-darker;
+
+  &__card {
+    @media (max-width: 767px) {
+      margin: 0 6rem;
+    }
+  }
+
+  &__customer {
+    & img {
+      width: 7rem;
+      height: 7rem;
+
+      @media (max-width: 767px) {
+        width: 6rem;
+        height: 6rem;
+      }
+    }
+
+    &--text {
+      & p {
+        color: darken($light-darker, 30%);
+      }
+    }
+  }
+}
+
+// Bootstrap carousel
+// & indicators
+.carousel-indicators {
+  & [data-bs-target] {
+    border-radius: 50%;
+  }
+  & .active {
+    background-color: $secondary !important;
+  }
+}
+
+// & Next and Previous buttons
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  background-color: $light !important;
+  border-radius: 50%;
+  background-size: 80% 80% !important;
+}

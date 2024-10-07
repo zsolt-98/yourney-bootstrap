@@ -10,8 +10,8 @@ $secondary: #0abf53;
 // $danger:
 $light: #f8f8f8;
 $dark: #01112b;
-
-// $darker-light: darken($light, 10%);
+/////////////////////////
+$light-darker: #e0e0e0;
 
 // Navbar
 $navbar-light-color: $dark;
@@ -52,5 +52,23 @@ $spacers: (
   9: $spacer * 16,
   10: $spacer * 20,
 ) !default;
+
+// Carousel slider
+$carousel-control-color: $primary;
+$carousel-control-width: 15%;
+$carousel-control-opacity: 1;
+$carousel-control-hover-opacity: 1;
+$carousel-control-transition: opacity 0.15s ease;
+
+$carousel-indicator-width: 15px;
+$carousel-indicator-height: 15px;
+$carousel-indicator-hit-area-height: 10px;
+$carousel-indicator-spacer: 5px;
+$carousel-indicator-opacity: 0.6;
+$carousel-indicator-active-bg: $primary;
+$carousel-indicator-active-opacity: 1;
+$carousel-indicator-transition: opacity 0.6s ease;
+
+$carousel-control-icon-width: 5rem;
 
 @import "../node_modules/bootstrap/scss/bootstrap.scss";

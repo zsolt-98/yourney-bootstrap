@@ -4,7 +4,7 @@ export default function ChooseContentBadge({ imgSrc, children }) {
       <span>
         <img src={imgSrc} alt="" />
       </span>
-      <div className="d-flex flex-column">{children}</div>
+      <div className="d-flex flex-column gap-2">{children}</div>
     </div>
   );
 }

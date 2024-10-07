@@ -12,7 +12,10 @@ export default function Cards() {
           className="container-xl px-6 py-4
         "
         >
-          <div className="d-flex  flex-column  gap-4 text-light text-center">
+          <div
+            className="d-flex  flex-column gap-4 text-light text-center
+          "
+          >
             <h2 className="display-3 fw-semibold ">
               Where speed meets sophistication
             </h2>

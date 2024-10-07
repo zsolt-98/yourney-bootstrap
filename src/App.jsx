@@ -6,6 +6,7 @@ import Cards from "./components/Cards.jsx";
 import Vehicles from "./components/Vehicles.jsx";
 import Banner from "./components/Banner.jsx";
 import WhyChooseUs from "./components/WhyChooseUs.jsx";
+import Testimonials from "./components/Testimonials.jsx";
 
 import "./App.scss";
 
@@ -19,6 +20,7 @@ function App() {
       <Vehicles></Vehicles>
       <Banner></Banner>
       <WhyChooseUs></WhyChooseUs>
+      <Testimonials></Testimonials>
     </>
   );
 }

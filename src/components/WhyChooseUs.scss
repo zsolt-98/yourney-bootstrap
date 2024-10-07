@@ -6,4 +6,47 @@
   &--badges {
     flex: 0 1 35%;
   }
+
+  @media (max-width: 1399px) {
+    &--main {
+      flex: 0 1 45%;
+    }
+
+    &--badges {
+      flex: 0 1 45%;
+    }
+  }
+
+  @media (max-width: 1199px) {
+    &--badges div {
+      flex: 0 0 35%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 991px) {
+    &--badges div {
+      flex: 0 0 40%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 767px) {
+    &--badges div {
+      flex: 0 0 60%;
+      justify-content: center;
+    }
+  }
+
+  @media (max-width: 576px) {
+    &--badges div {
+      flex: 0 0 75%;
+      justify-content: center;
+    }
+
+    &--badges img {
+      width: 8rem;
+      height: 8rem;
+    }
+  }
 }
