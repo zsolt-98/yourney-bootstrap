@@ -34,7 +34,7 @@ export default function Testimonials() {
                       &quot;Yourney exceeded my expectations with their
                       impeccable service and pristine car selection. The whole
                       experience was smooth and enjoyable. Highly
-                      recommend!&quot;
+                      recommend!!&quot;
                     </p>
                     <div className="testimonials__customer d-flex justify-content-center align-items-center gap-4  my-5 ">
                       <img
