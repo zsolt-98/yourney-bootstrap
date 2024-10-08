@@ -1,13 +1,16 @@
 .accordion {
   box-shadow: 0 15px 10px rgba(black, 0.25);
+  backface-visibility: hidden !important;
 }
 
 .accordion-button:not(.collapsed) {
   background-color: $primary !important;
   color: $light !important;
+  backface-visibility: hidden !important;
 }
 
 .accordion-button:focus {
   outline: none !important;
   box-shadow: none !important;
+  backface-visibility: hidden !important;
 }
