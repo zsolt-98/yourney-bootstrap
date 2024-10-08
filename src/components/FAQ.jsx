@@ -13,7 +13,7 @@ export default function FAQ() {
         <div className="row">
           <div className="col-md-8 offset-md-2">
             <div className="accordion text-center" id="accordionExample">
-              <div className="accordion-item text-dark">
+              <div className="accordion-item text-dark border-0">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button fs-1 text-dark"
@@ -23,7 +23,7 @@ export default function FAQ() {
                     aria-expanded="true"
                     aria-controls="collapseOne"
                   >
-                    1. What types of vehicles are available for rent at Yourney?
+                    1. What types of vehicles are available for rent?
                   </button>
                 </h2>
                 <div
@@ -45,7 +45,7 @@ export default function FAQ() {
                 </div>
               </div>
 
-              <div className="accordion-item text-dark">
+              <div className="accordion-item text-dark border-0">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button fs-1 text-dark collapsed"
@@ -77,7 +77,7 @@ export default function FAQ() {
                   </div>
                 </div>
               </div>
-              <div className="accordion-item text-dark">
+              <div className="accordion-item text-dark border-0">
                 <h2 className="accordion-header">
                   <button
                     className="accordion-button fs-1 text-dark collapsed"
@@ -87,8 +87,7 @@ export default function FAQ() {
                     aria-expanded="false"
                     aria-controls="collapseThree"
                   >
-                    3. What are the insurance options available for rental
-                    vehicles?
+                    3. What insurance options are available for rentals?
                   </button>
                 </h2>
                 <div
