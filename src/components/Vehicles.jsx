@@ -9,7 +9,7 @@ export default function Vehicles() {
           <div className="container-xl px-5 py-4">
             <div className="vehicles__content">
               <div className="vehicles__content--heading text-center mb-6 ">
-                <h2 className="display-3 fw-bold mb-4">Our rental fleet</h2>
+                <h2 className="display-1 fw-bold mb-4">Our rental fleet</h2>
                 <p className="h2  fw-normal ">
                   Discover our curated collection of luxury vehicles, perfect
                   for your next adventure or business trip.

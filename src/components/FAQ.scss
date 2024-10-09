@@ -7,11 +7,9 @@
 .accordion-button:not(.collapsed) {
   background-color: $primary !important;
   color: $light !important;
-  backface-visibility: hidden !important;
 }
 
 .accordion-button:focus {
   outline: none !important;
   box-shadow: none !important;
-  backface-visibility: hidden !important;
 }

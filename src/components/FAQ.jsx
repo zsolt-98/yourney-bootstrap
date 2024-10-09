@@ -1,9 +1,9 @@
 export default function FAQ() {
   return (
     <section className="bg-light py-8">
-      <div className="container-xl px-6 py-4">
+      <div className="container-xl px-5 py-4">
         <div className="text-center text-dark mb-6">
-          <h2 className="display-3 fw-bold text-capitalize mb-4">
+          <h2 className="display-1 fw-bold text-capitalize mb-4">
             Frequently asked questions
           </h2>
           <p className="h2  fw-normal ">

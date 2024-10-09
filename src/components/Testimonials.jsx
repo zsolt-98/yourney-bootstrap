@@ -9,7 +9,7 @@ export default function Testimonials() {
     <section className="testimonials py-8">
       <div className="container-xl px-5 py-4 ">
         <div className="d-flex justify-content-center text-start">
-          <div className="testimonials__heading text-dark d-flex flex-column justify-content-center text-center text-xl-start pb-7">
+          <div className="testimonials__heading text-dark d-flex flex-column justify-content-center text-center text-xxl-start pb-7">
             <h3 className="h2 fw-bold text-capitalize text-primary ms-1">
               Not sure yet?
             </h3>

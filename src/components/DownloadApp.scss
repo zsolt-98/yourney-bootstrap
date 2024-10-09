@@ -1,0 +1,15 @@
+.download {
+  &__col {
+    &--left {
+      & button {
+        min-width: 19.7rem !important;
+      }
+    }
+    &--right {
+      & img {
+        width: 85% !important;
+        max-width: 50rem;
+      }
+    }
+  }
+}

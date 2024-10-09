@@ -9,14 +9,14 @@ export default function Cards() {
     <>
       <section className="cards bg-dark py-8">
         <div
-          className="container-xl px-6 py-4
+          className="container-xl px-5 py-4
         "
         >
           <div
             className="d-flex  flex-column gap-4 text-light text-center
           "
           >
-            <h2 className="display-3 fw-semibold ">
+            <h2 className="display-1 fw-semibold ">
               Where speed meets sophistication
             </h2>
             <p className="h2 fw-normal">
