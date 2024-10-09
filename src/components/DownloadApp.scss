@@ -4,6 +4,11 @@
       & button {
         min-width: 19.7rem !important;
       }
+
+      @media (max-width: 468px) {
+        button:first-child {
+        }
+      }
     }
     &--right {
       & img {

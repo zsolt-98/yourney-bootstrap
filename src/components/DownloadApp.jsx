@@ -21,12 +21,14 @@ export default function DownloadApp() {
               <p className="h2  fw-normal mb-5">
                 Download the Yourney app from your device&#39;s app store.
               </p>
-              <button className="btn btn-secondary btn-lg text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap me-4">
-                Download app
-              </button>
-              <button className="btn btn-outline-secondary btn-lg text-secondary fs-2 fw-semibold text-capitalize text-nowrap">
-                About the app
-              </button>
+              <div className="d-flex flex-wrap gap-4 justify-content-center justify-content-xl-start">
+                <button className="btn btn-secondary btn-lg text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
+                  Download app
+                </button>
+                <button className="btn btn-outline-secondary btn-lg text-secondary fs-2 fw-semibold text-capitalize text-nowrap">
+                  About the app
+                </button>
+              </div>
             </div>
           </div>
           <div className="download__col--right col-xl-4 d-flex justify-content-center justify-content-xl-end">
