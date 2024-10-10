@@ -6,7 +6,7 @@ import FooterNavList from "./FooterNavList.jsx";
 
 export default function Footer() {
   return (
-    <footer className="footer py-6">
+    <footer className="footer bg-dark py-6">
       <div className="container-xl px-5 py-4">
         <div className="row g-6 g-xl-0 pb-6">
           <div className="footer__col--left col-lg-6 text-light d-flex justify-content-center justify-content-lg-start">
