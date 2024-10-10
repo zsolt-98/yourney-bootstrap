@@ -6,7 +6,7 @@ export default function DownloadApp() {
       <div className="container-xl px-5 px-xl-0 pt-4">
         <div className="row text-center text-xl-start gap-6 gap-xl-0">
           <div className="download__col--left col-xl-8 text-light">
-            <div className="mt-0 mt-xl-6">
+            <div className="">
               <h3 className="h2 fw-bold text-capitalize text-secondary">
                 Support
               </h3>
@@ -25,7 +25,7 @@ export default function DownloadApp() {
                 <button className="btn btn-secondary btn-lg text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
                   Download app
                 </button>
-                <button className="btn btn-outline-secondary btn-lg text-secondary fs-2 fw-semibold text-capitalize text-nowrap">
+                <button className="btn btn-outline-secondary btn-lg text-secondary fs-2 fw-semibold text-capitalize text-nowrap border-2">
                   About the app
                 </button>
               </div>

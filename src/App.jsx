@@ -9,6 +9,7 @@ import WhyChooseUs from "./components/WhyChooseUs.jsx";
 import Testimonials from "./components/Testimonials.jsx";
 import FAQ from "./components/FAQ.jsx";
 import DownloadApp from "./components/DownloadApp.jsx";
+import Footer from "./components/Footer.jsx";
 
 import "./App.scss";
 
@@ -25,6 +26,7 @@ function App() {
       <Testimonials></Testimonials>
       <FAQ></FAQ>
       <DownloadApp></DownloadApp>
+      <Footer></Footer>
     </>
   );
 }

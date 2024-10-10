@@ -1,0 +1,21 @@
+.footer {
+  background-color: $dark-darker;
+
+  & svg {
+    fill: $secondary;
+  }
+
+  &__logo {
+    width: 6rem;
+  }
+
+  &__list a {
+    text-decoration: none !important;
+    color: $light !important;
+    transition: all 0.2s !important;
+
+    &:hover {
+      color: $secondary !important;
+    }
+  }
+}
