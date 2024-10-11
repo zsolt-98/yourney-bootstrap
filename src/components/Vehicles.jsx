@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import vehiclesData from "../assets/data/vehiclesData.js";
 
 export default function Vehicles() {
@@ -6,16 +6,19 @@ export default function Vehicles() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleVehicleSelect = (vehicle) => {
-    if (selectedVehicle !== vehicle) {
-      setSelectedVehicle(vehicle);
-      setImageLoaded(false);
-    }
+    setSelectedVehicle((prevVehicle) => {
+      if (prevVehicle !== vehicle) {
+        setImageLoaded(false);
+        return vehicle;
+      }
+      return prevVehicle;
+    });
   };
 
   const preloadImages = (vehicles) => {
-    vehicles.forEach((vehicle) => {
+    vehicles.forEach(({ imgSource }) => {
       const img = new Image();
-      img.src = vehicle.imgSource;
+      img.src = imgSource;
     });
   };
 
@@ -70,12 +73,10 @@ export default function Vehicles() {
                         </tr>
                       </thead>
                       <tbody className="fs-3">
-                        {selectedVehicle.details.map((detail) => (
-                          <tr key={detail.label}>
-                            <td className="table__column--left">
-                              {detail.label}
-                            </td>
-                            <td>{detail.value}</td>
+                        {selectedVehicle.details.map(({ label, value }) => (
+                          <tr key={label}>
+                            <td className="table__column--left">{label} </td>
+                            <td>{value}</td>
                           </tr>
                         ))}
                       </tbody>
