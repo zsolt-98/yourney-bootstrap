@@ -40,7 +40,6 @@ export default function Vehicles() {
                     <button
                       className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap"
                       key={vehicle.name}
-                      style={{ display: imageLoaded ? "block" : "none" }}
                       onClick={() => handleVehicleSelect(vehicle)}
                     >
                       {vehicle.name}
@@ -52,6 +51,7 @@ export default function Vehicles() {
                     <img
                       src={selectedVehicle.imgSource}
                       alt={selectedVehicle.name}
+                      style={{ display: imageLoaded ? "block" : "none" }}
                       onLoad={() => setImageLoaded(true)}
                     />
                   </div>
