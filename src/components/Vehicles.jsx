@@ -1,7 +1,10 @@
-import BMW from "../assets/images/2022-bmw-gran-coupe.png";
-import VehiclesSelectButton from "./VehiclesSelectButton.jsx";
+// import BMW from "../assets/images/2022-bmw-gran-coupe.png";
+
+import vehiclesData from "../assets/data/vehiclesData.js";
 
 export default function Vehicles() {
+  const selectedVehicle = vehiclesData[0];
+
   return (
     <>
       <section className="vehicles">
@@ -17,52 +20,56 @@ export default function Vehicles() {
               </div>
               <div className="car__models d-flex justify-content-around flex-wrap">
                 <div className="car__models--select d-flex flex-column flex-lg-row gap-4 justify-content-center flex-xxl-column flex-wrap">
-                  <VehiclesSelectButton>
-                    BMW 228i Gran Coupe
-                  </VehiclesSelectButton>
-                  <VehiclesSelectButton>Range Rover Sport</VehiclesSelectButton>
-                  <VehiclesSelectButton>Audi A8</VehiclesSelectButton>
-                  <VehiclesSelectButton>Chevrolet Tahoe</VehiclesSelectButton>
-                  <VehiclesSelectButton>Nissan Maxima</VehiclesSelectButton>
-                  <VehiclesSelectButton>Mercedes Benz SL</VehiclesSelectButton>
+                  {vehiclesData.map((vehicle) => (
+                    <button
+                      className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap"
+                      key={vehicle.name}
+                    >
+                      {vehicle.name}
+                    </button>
+                  ))}
                 </div>
                 <div className="car__models--table d-flex justify-content-around gap-5 align-items-center mt-6 mt-xxl-0">
                   <div className="car__image--container">
-                    <img src={BMW} alt="" />
+                    <img
+                      src={selectedVehicle.imgSource}
+                      alt={selectedVehicle.name}
+                    />
                   </div>
                   <div className="table__container text-center">
                     <table className="table table-bordered ">
                       <thead>
                         <tr className="table fs-1">
                           <th colSpan={2}>
-                            $45 <span className="fs-2">per day</span>
+                            ${selectedVehicle.price}{" "}
+                            <span className="fs-2">per day</span>
                           </th>
                         </tr>
                       </thead>
                       <tbody className="fs-3">
                         <tr>
                           <td>Model</td>
-                          <td>228i</td>
+                          <td>{selectedVehicle.details.model}</td>
                         </tr>
                         <tr>
                           <td>Brand</td>
-                          <td>BMW</td>
+                          <td>{selectedVehicle.details.brand}</td>
                         </tr>
                         <tr>
                           <td>Year</td>
-                          <td>2022</td>
+                          <td>{selectedVehicle.details.year}</td>
                         </tr>
                         <tr>
                           <td>Doors</td>
-                          <td>4/5</td>
+                          <td>{selectedVehicle.details.doors}</td>
                         </tr>
                         <tr>
                           <td>Transmission</td>
-                          <td>Manual</td>
+                          <td>{selectedVehicle.details.transmission}</td>
                         </tr>
                         <tr>
                           <td>Fuel</td>
-                          <td>Diesel</td>
+                          <td>{selectedVehicle.details.fuel}</td>
                         </tr>
                       </tbody>
                     </table>
