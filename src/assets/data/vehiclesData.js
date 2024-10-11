@@ -1,78 +1,88 @@
 import BMW228iGranCoupe from "../images/2022-bmw-gran-coupe.png";
+import rangeRowerSport from "../images/2022-range-rover-sport.png";
+import audiA8 from "../images/2023-audi-a8.png";
+import chevroletTahoe from "../images/2023-chevrolet-tahoe.png";
+import nissanMaxima from "../images/2023-nissan-maxima.png";
+import mercedesBenzSL from "../images/2022-mercedes-benz-sl.png";
 
 const vehiclesData = [
   {
     name: "BMW 228i Gran Coupe",
     price: 220,
     imgSource: `${BMW228iGranCoupe}`,
-    details: {
-      model: "228i",
-      brand: "BMW",
-      year: "2022",
-      doors: "4/5",
-      transmission: "manual",
-      fuel: "Gasoline",
-    },
+    details: [
+      { label: "Model", value: "228i" },
+      { label: "Brand", value: "BMW" },
+      { label: "Year", value: "2022" },
+      { label: "Doors", value: "4/5" },
+      { label: "Transmission", value: "Manual" },
+      { label: "Fuel", value: "Gasoline" },
+    ],
   },
   {
     name: "Range Rover Sport",
     price: 190,
-    details: {
-      model: "Sport",
-      brand: "Range Rover",
-      year: "2022",
-      doors: "4/5",
-      transmission: "Automatic",
-      fuel: "Diesel",
-    },
+    imgSource: `${rangeRowerSport}`,
+    details: [
+      { label: "Model", value: "Sport" },
+      { label: "Brand", value: "Range Rover" },
+      { label: "Year", value: "2022" },
+      { label: "Doors", value: "4/5" },
+      { label: "Transmission", value: "Automatic" },
+      { label: "Fuel", value: "Diesel" },
+    ],
   },
   {
     name: "Audi A8",
     price: 240,
-    details: {
-      model: "A8",
-      brand: "Audi",
-      year: "2023",
-      doors: "4/5",
-      transmission: "Automatic",
-      fuel: "Gasoline",
-    },
+    imgSource: `${audiA8}`,
+    details: [
+      { label: "Model", value: "A8" },
+      { label: "Brand", value: "Audi" },
+      { label: "Year", value: "2023" },
+      { label: "Doors", value: "4/5" },
+      { label: "Transmission", value: "Automatic" },
+      { label: "Fuel", value: "Gasoline" },
+    ],
   },
   {
     name: "Chevrolet Tahoe",
     price: 200,
-    details: {
-      model: "Tahoe",
-      brand: "Chevrolet",
-      year: "2023",
-      doors: "4/5",
-      transmission: "Manual",
-      fuel: "Diesel",
-    },
+    imgSource: `${chevroletTahoe}`,
+    details: [
+      { label: "Model", value: "Tahoe" },
+      { label: "Brand", value: "Chevrolet" },
+      { label: "Year", value: "2023" },
+      { label: "Doors", value: "4/5" },
+      { label: "Transmission", value: "Manual" },
+      { label: "Fuel", value: "Diesel" },
+    ],
   },
   {
     name: "Nissan Maxima",
     price: 160,
-    details: {
-      model: "Maxima",
-      brand: "Nissan",
-      year: "2023",
-      doors: "4/5",
-      transmission: "Automatic",
-      fuel: "Gasoline",
-    },
+    imgSource: `${nissanMaxima}`,
+    details: [
+      { label: "Model", value: "Maxima" },
+      { label: "Brand", value: "Nissan" },
+      { label: "Year", value: "2023" },
+      { label: "Doors", value: "4/5" },
+      { label: "Transmission", value: "Automatic" },
+      { label: "Fuel", value: "Gasoline" },
+    ],
   },
   {
     name: "Mercedes-Benz SL",
     price: 160,
-    details: {
-      model: "SL",
-      brand: "Mercedes-Benz",
-      year: "2022",
-      doors: "2/3",
-      transmission: "Automatic",
-      fuel: "Gasoline",
-    },
+    imgSource: `${mercedesBenzSL}`,
+    details: [
+      { label: "Model", value: "SL" },
+      { label: "Brand", value: "Mercedes-Benz" },
+      { label: "Year", value: "2022" },
+      { label: "Doors", value: "2/3" },
+      { label: "Transmission", value: "Automatic" },
+      { label: "Fuel", value: "Gasoline" },
+    ],
   },
 ];
 

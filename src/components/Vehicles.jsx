@@ -1,9 +1,12 @@
-// import BMW from "../assets/images/2022-bmw-gran-coupe.png";
-
+import React, { useState } from "react";
 import vehiclesData from "../assets/data/vehiclesData.js";
 
 export default function Vehicles() {
-  const selectedVehicle = vehiclesData[0];
+  const [selectedVehicle, setSelectedVehicle] = useState(vehiclesData[0]);
+
+  const handleVehicleSelect = (vehicle) => {
+    setSelectedVehicle(vehicle);
+  };
 
   return (
     <>
@@ -24,6 +27,7 @@ export default function Vehicles() {
                     <button
                       className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap"
                       key={vehicle.name}
+                      onClick={() => handleVehicleSelect(vehicle)}
                     >
                       {vehicle.name}
                     </button>
@@ -47,30 +51,12 @@ export default function Vehicles() {
                         </tr>
                       </thead>
                       <tbody className="fs-3">
-                        <tr>
-                          <td>Model</td>
-                          <td>{selectedVehicle.details.model}</td>
-                        </tr>
-                        <tr>
-                          <td>Brand</td>
-                          <td>{selectedVehicle.details.brand}</td>
-                        </tr>
-                        <tr>
-                          <td>Year</td>
-                          <td>{selectedVehicle.details.year}</td>
-                        </tr>
-                        <tr>
-                          <td>Doors</td>
-                          <td>{selectedVehicle.details.doors}</td>
-                        </tr>
-                        <tr>
-                          <td>Transmission</td>
-                          <td>{selectedVehicle.details.transmission}</td>
-                        </tr>
-                        <tr>
-                          <td>Fuel</td>
-                          <td>{selectedVehicle.details.fuel}</td>
-                        </tr>
+                        {selectedVehicle.details.map((detail) => (
+                          <tr key={detail.label}>
+                            <td>{detail.label}</td>
+                            <td>{detail.value}</td>
+                          </tr>
+                        ))}
                       </tbody>
                     </table>
                     <button className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap w-100">
