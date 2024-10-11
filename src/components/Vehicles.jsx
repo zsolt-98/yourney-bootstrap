@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import vehiclesData from "../assets/data/vehiclesData.js";
 
 export default function Vehicles() {
@@ -7,6 +7,17 @@ export default function Vehicles() {
   const handleVehicleSelect = (vehicle) => {
     setSelectedVehicle(vehicle);
   };
+
+  const preloadImages = (vehicles) => {
+    vehicles.forEach((vehicle) => {
+      const img = new Image();
+      img.src = vehicle.imgSource;
+    });
+  };
+
+  useEffect(() => {
+    preloadImages(vehiclesData);
+  }, []);
 
   return (
     <>
