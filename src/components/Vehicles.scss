@@ -28,6 +28,8 @@
 
 // Vehicle model table layout
 .table__container {
+  // min-width: 34.8rem !important;
+
   & table {
     border: 2px solid $primary;
   }

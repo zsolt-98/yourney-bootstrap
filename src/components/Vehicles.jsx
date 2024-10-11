@@ -3,9 +3,11 @@ import vehiclesData from "../assets/data/vehiclesData.js";
 
 export default function Vehicles() {
   const [selectedVehicle, setSelectedVehicle] = useState(vehiclesData[0]);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleVehicleSelect = (vehicle) => {
     setSelectedVehicle(vehicle);
+    setImageLoaded(false);
   };
 
   const preloadImages = (vehicles) => {
@@ -38,6 +40,7 @@ export default function Vehicles() {
                     <button
                       className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap"
                       key={vehicle.name}
+                      style={{ display: imageLoaded ? "block" : "none" }}
                       onClick={() => handleVehicleSelect(vehicle)}
                     >
                       {vehicle.name}
@@ -49,6 +52,7 @@ export default function Vehicles() {
                     <img
                       src={selectedVehicle.imgSource}
                       alt={selectedVehicle.name}
+                      onLoad={() => setImageLoaded(true)}
                     />
                   </div>
                   <div className="table__container text-center">
