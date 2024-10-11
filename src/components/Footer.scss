@@ -1,15 +1,21 @@
 .footer {
   // background-color: $dark-darker;
 
-  & svg {
-    fill: $secondary;
+  &__icon {
+    &--main {
+      fill: $secondary;
+    }
+    &--social {
+      fill: $light;
+    }
   }
 
   &__logo {
     width: 6rem;
   }
 
-  &__list a {
+  &__list a,
+  &__copy a {
     text-decoration: none !important;
     color: $light !important;
     transition: all 0.2s !important;
@@ -17,5 +23,11 @@
     &:hover {
       color: $secondary !important;
     }
+  }
+
+  &__divider {
+    height: 2px;
+    background-color: $light;
+    border: none;
   }
 }

@@ -1,6 +1,9 @@
 import logo from "../assets/images/logo-y-green.png";
 import IconTelephone from "./react-svg-icons/IconTelephone.jsx";
 import IconEmail from "./react-svg-icons/IconEmail.jsx";
+import IconFacebook from "./react-svg-icons/IconFacebook.jsx";
+import IconLinkedIn from "./react-svg-icons/IconLinkedIn.jsx";
+import IconInstagram from "./react-svg-icons/IconInstagram.jsx";
 
 import FooterNavList from "./FooterNavList.jsx";
 
@@ -19,13 +22,13 @@ export default function Footer() {
               </p>
               <div className="fs-2">
                 <p className="">
-                  <span className="pe-1">
+                  <span className="pe-1 footer__icon--main">
                     <IconTelephone />
                   </span>{" "}
                   (060) - 123 - 233
                 </p>
                 <p className="">
-                  <span className="pe-2">
+                  <span className="pe-2 footer__icon--main">
                     <IconEmail />
                   </span>{" "}
                   info@yourney.com
@@ -64,6 +67,26 @@ export default function Footer() {
                 </li>
               </FooterNavList>
             </div>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12 d-flex justify-content-end hstack gap-3 mb-3">
+            <a href="" className="footer__icon--social">
+              <IconFacebook />
+            </a>
+            <a href="" className="footer__icon--social">
+              <IconLinkedIn />
+            </a>
+            <a href="" className="footer__icon--social">
+              <IconInstagram />
+            </a>
+          </div>
+          <hr className="footer__divider" />
+          <div className="footer__copy col-12 d-flex justify-content-between text-light fs-4">
+            <p>&copy; 2024 Yourney Ltd.</p>
+            <p>
+              <a href="">Privacy Policy</a>
+            </p>
           </div>
         </div>
       </div>
