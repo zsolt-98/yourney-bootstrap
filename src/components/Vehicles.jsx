@@ -40,7 +40,9 @@ export default function Vehicles() {
                 <div className="car__models--select d-flex flex-column flex-lg-row gap-4 justify-content-center flex-xxl-column flex-wrap">
                   {vehiclesData.map((vehicle) => (
                     <button
-                      className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap"
+                      className={`btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ${
+                        selectedVehicle === vehicle ? "car__active" : ""
+                      } `}
                       key={vehicle.name}
                       onClick={() => handleVehicleSelect(vehicle)}
                     >

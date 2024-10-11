@@ -73,7 +73,7 @@ const vehiclesData = [
   },
   {
     name: "Mercedes-Benz SL",
-    price: 160,
+    price: 230,
     imgSource: `${mercedesBenzSL}`,
     details: [
       { label: "Model", value: "SL" },

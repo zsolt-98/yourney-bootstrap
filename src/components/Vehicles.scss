@@ -1,3 +1,9 @@
+.car {
+  &__active {
+    background-color: $secondary !important;
+  }
+}
+
 // Button hover
 .car__models {
   & button:hover {
