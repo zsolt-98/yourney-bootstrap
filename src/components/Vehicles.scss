@@ -27,26 +27,32 @@
 }
 
 // Vehicle model table layout
-.table__container {
-  & table {
-    border: 2px solid $primary;
-    min-width: 34.8rem !important;
-  }
+.table {
+  &__container {
+    & table {
+      border: 2px solid $primary;
+      min-width: 30rem !important;
+    }
 
-  & th {
-    background-color: $primary !important;
-    color: $light !important;
-    font-weight: 600 !important;
+    & th {
+      background-color: $primary !important;
+      color: $light !important;
+      font-weight: 600 !important;
 
-    & span {
-      font-weight: 300 !important;
+      & span {
+        font-weight: 300 !important;
+      }
+    }
+
+    & th,
+    & td {
+      border: 2px solid $primary !important;
+      // padding: 0.75rem 2.25rem !important;
+      padding: 0.75rem 0rem !important;
     }
   }
-
-  & th,
-  & td {
-    border: 2px solid $primary !important;
-    padding: 0.75rem 2.25rem !important;
+  &__column--left {
+    width: 15rem !important;
   }
 }
 

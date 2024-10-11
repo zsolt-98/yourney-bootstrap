@@ -6,8 +6,10 @@ export default function Vehicles() {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleVehicleSelect = (vehicle) => {
-    setSelectedVehicle(vehicle);
-    setImageLoaded(false);
+    if (selectedVehicle !== vehicle) {
+      setSelectedVehicle(vehicle);
+      setImageLoaded(false);
+    }
   };
 
   const preloadImages = (vehicles) => {
@@ -51,7 +53,7 @@ export default function Vehicles() {
                     <img
                       src={selectedVehicle.imgSource}
                       alt={selectedVehicle.name}
-                      style={{ display: imageLoaded ? "block" : "none" }}
+                      style={{ visibility: imageLoaded ? "visible" : "hidden" }}
                       onLoad={() => setImageLoaded(true)}
                     />
                   </div>
@@ -68,7 +70,9 @@ export default function Vehicles() {
                       <tbody className="fs-3">
                         {selectedVehicle.details.map((detail) => (
                           <tr key={detail.label}>
-                            <td>{detail.label}</td>
+                            <td className="table__column--left">
+                              {detail.label}
+                            </td>
                             <td>{detail.value}</td>
                           </tr>
                         ))}
