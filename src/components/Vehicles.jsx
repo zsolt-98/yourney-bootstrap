@@ -3,28 +3,28 @@ import vehiclesData from "../assets/data/vehiclesData.js";
 
 export default function Vehicles() {
   const [selectedVehicle, setSelectedVehicle] = useState(vehiclesData[0]);
-  // const [imageLoaded, setImageLoaded] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
 
   const handleVehicleSelect = (vehicle) => {
     setSelectedVehicle((prevVehicle) => {
       if (prevVehicle !== vehicle) {
-        // setImageLoaded(false);
+        setImageLoaded(false);
         return vehicle;
       }
       return prevVehicle;
     });
   };
 
-  // const preloadImages = (vehicles) => {
-  //   vehicles.forEach(({ imgSource }) => {
-  //     const img = new Image();
-  //     img.src = imgSource;
-  //   });
-  // };
+  const preloadImages = (vehicles) => {
+    vehicles.forEach(({ imgSource }) => {
+      const img = new Image();
+      img.src = imgSource;
+    });
+  };
 
-  // useEffect(() => {
-  //   preloadImages(vehiclesData);
-  // }, []);
+  useEffect(() => {
+    preloadImages(vehiclesData);
+  }, []);
 
   return (
     <>
@@ -58,8 +58,8 @@ export default function Vehicles() {
                     <img
                       src={selectedVehicle.imgSource}
                       alt={selectedVehicle.name}
-                      // style={{ visibility: imageLoaded ? "visible" : "hidden" }}
-                      // onLoad={() => setImageLoaded(true)}
+                      style={{ visibility: imageLoaded ? "visible" : "hidden" }}
+                      onLoad={() => setImageLoaded(true)}
                     />
                   </div>
                   <div className="table__container text-center">
