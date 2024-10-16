@@ -1,7 +1,9 @@
 import IconCheckCircle from "./react-svg-icons/IconCheckCircle.jsx";
-import IconCar from "./react-svg-icons/IconCar.jsx";
-import IconLocation from "./react-svg-icons/IconLocation.jsx";
-import IconCalendar from "./react-svg-icons/IconCalendar.jsx";
+
+import BookingSelectVehicle from "./BookingSelectVehicle.jsx";
+import BookingLocations from "./BookingLocations.jsx";
+import BookingDates from "./BookingDates.jsx";
+import BookingModal from "./BookingModal.jsx";
 
 export default function Booking() {
   return (
@@ -12,88 +14,31 @@ export default function Booking() {
             <h2 className="h1 fw-bold text-dark mb-5">Book your ride</h2>
             <form action="">
               <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
-                <div className="col">
-                  <div className="booking__form--select fs-3 d-flex flex-column">
-                    <label htmlFor="" className="ms-3 mb-2">
-                      <span>
-                        <IconCar />
-                      </span>{" "}
-                      Select your vehicle
-                    </label>
-                    <select name="" id="" className="fs-4 p-3  ">
-                      <option value="">Select your vehicle</option>
-                      <option value=""></option>
-                      <option value=""></option>
-                      <option value=""></option>
-                      <option value=""></option>
-                      <option value=""></option>
-                    </select>
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="booking__form--select fs-3 d-flex flex-column">
-                    <label htmlFor="" className="ms-3 mb-2">
-                      <span>
-                        <IconLocation />
-                      </span>{" "}
-                      Pick-up point
-                    </label>
-                    <select name="" id="" className="fs-4 p-3  ">
-                      <option value="">Select pick-up location</option>
-                      <option value=""></option>
-                      <option value=""></option>
-                      <option value=""></option>
-                    </select>
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="booking__form--select fs-3 d-flex flex-column">
-                    <label htmlFor="" className="ms-3 mb-2">
-                      <span>
-                        <IconLocation />
-                      </span>{" "}
-                      Drop-off point
-                    </label>
-                    <select name="" id="" className="fs-4 p-3  ">
-                      <option value="">Select drop-off location</option>
-                      <option value=""></option>
-                      <option value=""></option>
-                      <option value=""></option>
-                    </select>
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="booking__form--input fs-3 d-flex flex-column">
-                    <label htmlFor="pick-up-time" className="ms-3 mb-2">
-                      <span>
-                        <IconCalendar />
-                      </span>{" "}
-                      Pick-up date
-                    </label>
-
-                    <input
-                      type="date"
-                      name=""
-                      id="pick-up-time"
-                      className="fs-4 p-3"
-                    />
-                  </div>
-                </div>
-                <div className="col">
-                  <div className="booking__form--input fs-3 d-flex flex-column">
-                    <label htmlFor="drop-off-time" className="ms-3 mb-2">
-                      <span>
-                        <IconCalendar />
-                      </span>{" "}
-                      Drop-off date
-                    </label>
-                    <input
-                      type="date"
-                      id="drop-off-time"
-                      className="fs-4 p-3"
-                    />
-                  </div>
-                </div>
+                <BookingSelectVehicle />
+                <BookingLocations
+                  htmlFor="pick-up-location"
+                  name="pickUpPoint"
+                  id="pick-up-location"
+                  pointType="Pick-up"
+                  LocationType="pick-up"
+                />
+                <BookingLocations
+                  htmlFor="drop-off-location"
+                  name="dropOffPoint"
+                  id="drop-off-location"
+                  pointType="Drop-off"
+                  LocationType="drop-off"
+                />
+                <BookingDates
+                  htmlFor="pick-up-date"
+                  name="pickUpDate"
+                  id="pick-up-date"
+                />
+                <BookingDates
+                  htmlFor="drop-off-date"
+                  name="dropOffDate"
+                  id="drop-off-date"
+                />
                 <div className="col d-flex flex-column justify-content-end">
                   <button className="booking__content--btn  btn btn-primary  text-white border-0 fs-3 fw-semibold text-capitalize text-nowrap">
                     Book ride{" "}
@@ -110,6 +55,7 @@ export default function Booking() {
             </form>
           </div>
         </div>
+        <BookingModal></BookingModal>
       </section>
     </>
   );

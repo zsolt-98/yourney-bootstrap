@@ -1,0 +1,11 @@
+.modal {
+  &__button {
+    &--details {
+      width: auto;
+
+      @media (max-width: 991px) {
+        width: 100%;
+      }
+    }
+  }
+}

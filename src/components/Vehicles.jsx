@@ -81,7 +81,12 @@ export default function Vehicles() {
                         ))}
                       </tbody>
                     </table>
-                    <button className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap w-100">
+                    <button
+                      className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap w-100 "
+                      data-bs-toggle="modal"
+                      data-bs-target="#bookingModal"
+                    >
+                      {" "}
                       Reserve now
                     </button>
                   </div>
