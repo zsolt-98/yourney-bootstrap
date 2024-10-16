@@ -73,41 +73,44 @@ export default function BookingModal() {
                 className="row text-dark justify-content-around
               "
               >
-                <div className="col-3 border rounded p-3">
-                  <h3 className="fs-2 fw-semibold mb-3 text-capitalize">
-                    Dates & times
-                  </h3>
-                  <p className="fs-4 mb-2">
-                    <span className="fw-semibold">Pick-up:</span> Wed, Oct 16,
-                    2024 @ 12:00 PM
-                  </p>
-                  <p className="fs-4 mb-3">
-                    <span className="fw-semibold">Drop-off:</span> Thu, Oct 17,
-                    2024 @ 12:00 PM
-                  </p>
-
-                  <h3 className="fs-2 fw-semibold py-3 text-capitalize border-top">
-                    Pick-up & drop-off location
-                  </h3>
-                  <p className="fs-4 mb-2">
-                    <span className="fw-semibold">Pick-up:&nbsp;</span>
-                    <br />
-                    106 W 24th St, <br />
-                    NY 10011, <br />
-                    New York, USA
-                  </p>
-                  <p className="fs-4 mb-0">
-                    <span className="fw-semibold">Drop-off:&nbsp;</span>
-                    <br />
-                    106 W 24th St, <br />
-                    NY 10011, <br />
-                    New York, USA
-                  </p>
+                <div className="col-4 ">
+                  <div className="border rounded p-3">
+                    <h3 className="fs-2 fw-semibold mb-3 text-capitalize">
+                      Dates & times
+                    </h3>
+                    <p className="fs-4 mb-2">
+                      <span className="fw-semibold">Pick-up:&nbsp;</span>
+                      <br />
+                      Wed, Oct 16, 2024 @ 12:00 PM
+                    </p>
+                    <p className="fs-4 mb-3">
+                      <span className="fw-semibold">Drop-off:&nbsp;</span>
+                      <br />
+                      Thu, Oct 17, 2024 @ 12:00 PM
+                    </p>
+                    <h3 className="fs-2 fw-semibold py-3 mb-0 text-capitalize border-top">
+                      Pick-up & drop-off location
+                    </h3>
+                    <p className="fs-4 mb-2">
+                      <span className="fw-semibold">Pick-up:&nbsp;</span>
+                      <br />
+                      106 W 24th St, <br />
+                      NY 10011, <br />
+                      New York, USA
+                    </p>
+                    <p className="fs-4 mb-0">
+                      <span className="fw-semibold">Drop-off:&nbsp;</span>
+                      <br />
+                      106 W 24th St, <br />
+                      NY 10011, <br />
+                      New York, USA
+                    </p>
+                  </div>
                 </div>
-                <div className="col-8 flex-grow">
+                <div className="col-7">
                   <div className="row  border rounded p-3">
-                    <div className="col-5 d-flex justify-content-center">
-                      <div className="div">
+                    <div className="col-4 d-flex justify-content-start">
+                      <div className="">
                         <h3 className="fs-2 fw-semibold mb-3 text-capitalize">
                           Vehicle
                         </h3>
@@ -119,7 +122,7 @@ export default function BookingModal() {
                         />
                       </div>
                     </div>
-                    <div className="col-7 d-flex flex-column align-items-end justify-content-center gap-4">
+                    <div className="col-8 d-flex flex-column align-items-end justify-content-center gap-4">
                       <div className="row w-100">
                         <div className="col-12 d-flex gap-5 ">
                           <div className="d-flex-flex-column">
@@ -199,6 +202,40 @@ export default function BookingModal() {
                             </p>
                           </div>
                         </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="row border rounded p-3 mt-5">
+                    <div className="col-12">
+                      <div className="mb-3 border-bottom">
+                        <h3 className="fs-2 fw-semibold mb-3 text-capitalize">
+                          Price breakdown
+                        </h3>
+                        <h4 className="fw-semibold fs-4 mb-2 pb-3">Vehicle</h4>
+                        <li className="list-unstyled d-flex justify-content-between">
+                          <p className="fs-4 mb-2 ">Time & distance 1 day(s)</p>
+                          <p className="fs-4 mb-2 ">$ 424.64</p>
+                        </li>
+                        <li className="list-unstyled d-flex justify-content-between">
+                          <p className="fs-4 mb-2 ">Unlimited mileage</p>
+                          <p className="fs-4 mb-2 ">Included</p>
+                        </li>
+                        <h4 className="fw-semibold fs-4 mb-2 py-3">Extras</h4>
+                        <p className="fs-4 mb-2 ">-</p>
+                      </div>
+                      <div className="my-3 border-bottom">
+                        <li className="list-unstyled d-flex justify-content-between">
+                          <p className="fs-4 mb-2 fw-semibold text-primary ">
+                            Taxes & fees
+                          </p>
+                          <p className="fs-4 mb-2 ">$ 84.98</p>
+                        </li>
+                      </div>
+                      <div className="">
+                        <li className="list-unstyled d-flex justify-content-between align-items-center">
+                          <p className="fs-4 mb-2 ">Estimated total</p>
+                          <p className="mb-2 fs-1 fw-bold">$ 509.64</p>
+                        </li>
                       </div>
                     </div>
                   </div>
