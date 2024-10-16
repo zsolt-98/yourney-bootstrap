@@ -31,7 +31,7 @@ export default function BookingModal() {
             ></button>
           </div>
           <div className="modal-body">
-            <div className="p-6 mb-5 bg-white border border-0 rounded-3">
+            <div className="p-6 mb-5">
               <h2 className="h1 fw-bold text-dark mb-5">Book your ride</h2>
               <form action="">
                 <div className="row row-cols-1 row-cols-lg-2 g-4">
@@ -73,8 +73,8 @@ export default function BookingModal() {
                 className="row text-dark justify-content-around
               "
               >
-                <div className="col-4 ">
-                  <div className="border rounded p-3">
+                <div className="col-lg-12 col-xl-4">
+                  <div className="row border rounded p-3">
                     <h3 className="fs-2 fw-semibold mb-3 text-capitalize">
                       Dates & times
                     </h3>
@@ -98,7 +98,7 @@ export default function BookingModal() {
                       NY 10011, <br />
                       New York, USA
                     </p>
-                    <p className="fs-4 mb-0">
+                    <p className="fs-4 mb-2">
                       <span className="fw-semibold">Drop-off:&nbsp;</span>
                       <br />
                       106 W 24th St, <br />
@@ -107,9 +107,9 @@ export default function BookingModal() {
                     </p>
                   </div>
                 </div>
-                <div className="col-7">
+                <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
                   <div className="row  border rounded p-3">
-                    <div className="col-4 d-flex justify-content-start">
+                    <div className="col-12 col-lg-4 d-flex justify-content-start">
                       <div className="">
                         <h3 className="fs-2 fw-semibold mb-3 text-capitalize">
                           Vehicle
@@ -122,43 +122,43 @@ export default function BookingModal() {
                         />
                       </div>
                     </div>
-                    <div className="col-8 d-flex flex-column align-items-end justify-content-center gap-4">
+                    <div className="col-12 col-lg-8 d-flex flex-column align-items-end justify-content-center gap-4">
                       <div className="row w-100">
-                        <div className="col-12 d-flex gap-5 ">
-                          <div className="d-flex-flex-column">
-                            <p className="fs-4 mb-2">
+                        <div className="col-12 d-flex flex-column flex-sm-row gap-0 gap-sm-5">
+                          <div className="d-flex flex-column">
+                            <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconPerson width="18" height="18" />
                               </span>
-                              5 seats
-                            </p>
-                            <p className="fs-4 mb-2">
+                              <p className="fs-4 mb-2">5 seats</p>
+                            </div>
+                            <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconTransmission width="18" height="18" />
                               </span>
-                              Automatic
-                            </p>
+                              <p className="fs-4 mb-2">Automatic</p>
+                            </div>
                           </div>
-                          <div className="d-flex-flex-column">
-                            <p className="fs-4 mb-2">
+                          <div className="d-flex flex-column">
+                            <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconList width="18" height="18" />
                               </span>
-                              Complete insurance
-                            </p>
-                            <p className="fs-4 mb-2">
+                              <p className="fs-4 mb-2">Complete insurance</p>
+                            </div>
+                            <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconSpeedometer width="18" height="18" />
                               </span>
-                              Unlimited mileage
-                            </p>
+                              <p className="fs-4 mb-2">Unlimited mileage</p>
+                            </div>
                           </div>
                         </div>
                       </div>
                       <div className="row w-100">
-                        <div className="col-12 d-flex gap-5 ">
-                          <div className="d-flex-flex-column">
-                            <p className="fs-4 mb-2">
+                        <div className="col-12 d-flex flex-column flex-sm-row gap-0 gap-sm-5">
+                          <div className="d-flex flex-column">
+                            <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconCheck
                                   width="18"
@@ -166,9 +166,9 @@ export default function BookingModal() {
                                   fill="#0abf53"
                                 />
                               </span>
-                              VIP services
-                            </p>
-                            <p className="fs-4 mb-2">
+                              <p className="fs-4 mb-2">VIP services</p>
+                            </div>
+                            <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconCheck
                                   width="18"
@@ -176,11 +176,11 @@ export default function BookingModal() {
                                   fill="#0abf53"
                                 />
                               </span>
-                              Helpful staff
-                            </p>
+                              <p className="fs-4 mb-2">Helpful staff</p>
+                            </div>
                           </div>
-                          <div className="d-flex-flex-column">
-                            <p className="fs-4 mb-2">
+                          <div className="d-flex flex-column">
+                            <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconCheck
                                   width="18"
@@ -188,9 +188,9 @@ export default function BookingModal() {
                                   fill="#0abf53"
                                 />
                               </span>
-                              9.5 star rating
-                            </p>
-                            <p className="fs-4 mb-2">
+                              <p className="fs-4 mb-2">9.5 star rating</p>
+                            </div>
+                            <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconCheck
                                   width="18"
@@ -198,8 +198,8 @@ export default function BookingModal() {
                                   fill="#0abf53"
                                 />
                               </span>
-                              Free cancelation
-                            </p>
+                              <p className="fs-4 mb-2">Free cancellation</p>
+                            </div>
                           </div>
                         </div>
                       </div>
