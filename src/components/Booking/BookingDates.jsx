@@ -1,4 +1,4 @@
-import IconCalendar from "./react-svg-icons/IconCalendar.jsx";
+import IconCalendar from "../react-svg-icons/IconCalendar";
 
 export default function BookingDates({
   htmlFor,

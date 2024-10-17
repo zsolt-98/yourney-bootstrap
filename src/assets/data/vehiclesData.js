@@ -9,6 +9,7 @@ const vehiclesData = [
   {
     name: "BMW 228i Gran Coupe",
     price: 220,
+    rating: 9.5,
     imgSource: `${BMW228iGranCoupe}`,
     details: [
       { label: "Model", value: "228i" },
@@ -22,6 +23,7 @@ const vehiclesData = [
   {
     name: "Range Rover Sport",
     price: 190,
+    rating: 8.8,
     imgSource: `${rangeRowerSport}`,
     details: [
       { label: "Model", value: "Sport" },
@@ -35,6 +37,7 @@ const vehiclesData = [
   {
     name: "Audi A8",
     price: 240,
+    rating: 9.1,
     imgSource: `${audiA8}`,
     details: [
       { label: "Model", value: "A8" },
@@ -48,6 +51,7 @@ const vehiclesData = [
   {
     name: "Chevrolet Tahoe",
     price: 200,
+    rating: 8.9,
     imgSource: `${chevroletTahoe}`,
     details: [
       { label: "Model", value: "Tahoe" },
@@ -61,6 +65,7 @@ const vehiclesData = [
   {
     name: "Nissan Maxima",
     price: 160,
+    rating: 8.6,
     imgSource: `${nissanMaxima}`,
     details: [
       { label: "Model", value: "Maxima" },
@@ -74,6 +79,7 @@ const vehiclesData = [
   {
     name: "Mercedes-Benz SL",
     price: 230,
+    rating: 9.7,
     imgSource: `${mercedesBenzSL}`,
     details: [
       { label: "Model", value: "SL" },

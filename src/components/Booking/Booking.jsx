@@ -1,9 +1,9 @@
-import IconCheckCircle from "./react-svg-icons/IconCheckCircle.jsx";
+import IconCheckCircle from "../react-svg-icons/IconCheckCircle.jsx";
 
-import BookingSelectVehicle from "./BookingSelectVehicle.jsx";
-import BookingLocations from "./BookingLocations.jsx";
-import BookingDates from "./BookingDates.jsx";
-import BookingModal from "./BookingModal.jsx";
+import BookingSelectVehicle from "../Booking/BookingSelectVehicle.jsx";
+import BookingLocations from "../Booking/BookingLocations.jsx";
+import BookingDates from "../Booking/BookingDates.jsx";
+import BookingModal from "./BookingModal/BookingModal.jsx";
 
 export default function Booking() {
   return (

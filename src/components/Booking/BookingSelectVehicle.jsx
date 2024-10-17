@@ -1,5 +1,5 @@
-import vehiclesData from "../assets/data/vehiclesData.js";
-import IconCar from "./react-svg-icons/IconCar.jsx";
+import vehiclesData from "../../assets/data/vehiclesData.js";
+import IconCar from "../react-svg-icons/IconCar.jsx";
 
 export default function BookingSelectVehicle() {
   return (

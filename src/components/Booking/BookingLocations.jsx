@@ -1,5 +1,5 @@
-import IconLocation from "./react-svg-icons/IconLocation.jsx";
-import locationData from "../assets/data/locationData.js";
+import IconLocation from "../react-svg-icons/IconLocation.jsx";
+import locationData from "../../assets/data/locationData.js";
 
 export default function BookingLocations({
   htmlFor,
