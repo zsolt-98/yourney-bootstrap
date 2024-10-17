@@ -1,6 +1,12 @@
 import IconCalendar from "./react-svg-icons/IconCalendar.jsx";
 
-export default function BookingDates({ htmlFor, name, id, dateType }) {
+export default function BookingDates({
+  htmlFor,
+  name,
+  id,
+  dateType,
+  onChange,
+}) {
   return (
     <div className="col">
       <div className="booking__form--input fs-3 d-flex flex-column">
@@ -16,6 +22,7 @@ export default function BookingDates({ htmlFor, name, id, dateType }) {
           name={name}
           id={id}
           className="fs-4 p-3"
+          onChange={onChange}
           onClick={(e) => e.currentTarget.showPicker()}
         />
       </div>

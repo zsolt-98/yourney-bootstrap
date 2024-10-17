@@ -1,3 +1,4 @@
+import { useState } from "react";
 import IconTransmission from "./react-svg-icons/IconTransmission.jsx";
 import IconPerson from "./react-svg-icons/IconPerson.jsx";
 import IconSpeedometer from "./react-svg-icons/IconSpeedometer.jsx";
@@ -5,10 +6,45 @@ import IconList from "./react-svg-icons/IconList.jsx";
 import IconCheck from "./react-svg-icons/IconCheck.jsx";
 import BMW228iGranCoupe from "../assets/images/2022-bmw-gran-coupe.png";
 
+import locationData from "../assets/data/locationData.js";
+
 import BookingLocations from "./BookingLocations.jsx";
 import BookingDates from "./BookingDates.jsx";
 
 export default function BookingModal() {
+  const [pickUpPoint, setPickUpPoint] = useState("");
+  const [dropOffPoint, setDropOffPoint] = useState("");
+  const [pickUpDate, setPickUpDate] = useState("");
+  const [dropOffDate, setDropOffDate] = useState("");
+
+  const handlePickUpPointChange = (locationId) => {
+    const location = locationData.find((loc) => loc.id === locationId);
+    setPickUpPoint(location);
+  };
+
+  const handleDropOffPointChange = (locationId) => {
+    const location = locationData.find((loc) => loc.id === locationId);
+    setDropOffPoint(location);
+  };
+
+  const handleDatePickUpChange = (e) => {
+    setPickUpDate(e.target.value);
+  };
+
+  const handleDateDropOffChange = (e) => {
+    setDropOffDate(e.target.value);
+  };
+
+  const formatDate = (date) => {
+    const options = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    return new Date(date).toLocaleDateString("en-US", options);
+  };
+
   return (
     <div
       className="modal fade"
@@ -36,6 +72,7 @@ export default function BookingModal() {
                     id="pick-up-location"
                     pointType="Pick-up"
                     LocationType="pick-up"
+                    onChange={(e) => handlePickUpPointChange(e.target.value)}
                   />
                   <BookingLocations
                     htmlFor="drop-off-location"
@@ -43,16 +80,21 @@ export default function BookingModal() {
                     id="drop-off-location"
                     pointType="Drop-off"
                     LocationType="drop-off"
+                    onChange={(e) => handleDropOffPointChange(e.target.value)}
                   />
                   <BookingDates
                     htmlFor="pick-up-date"
                     name="pickUpDate"
                     id="pick-up-date"
+                    dateType="Pick-up"
+                    onChange={handleDatePickUpChange}
                   />
                   <BookingDates
                     htmlFor="drop-off-date"
                     name="dropOffDate"
                     id="drop-off-date"
+                    dateType="Drop-off"
+                    onChange={handleDateDropOffChange}
                   />
                 </div>
                 <div className="d-flex justify-content-center justify-content-lg-end mt-5">
@@ -76,12 +118,12 @@ export default function BookingModal() {
                     <p className="fs-4 mb-2">
                       <span className="fw-semibold">Pick-up:&nbsp;</span>
                       <br />
-                      Wed, Oct 16, 2024 @ 12:00 PM
+                      {formatDate(pickUpDate)} from 12:00 AM
                     </p>
                     <p className="fs-4 mb-3">
                       <span className="fw-semibold">Drop-off:&nbsp;</span>
                       <br />
-                      Thu, Oct 17, 2024 @ 12:00 PM
+                      {formatDate(dropOffDate)} until 12:00 PM
                     </p>
                     <h3 className="fs-2 fw-semibold py-3 mb-0 text-capitalize border-top">
                       Pick-up & drop-off location
@@ -89,16 +131,16 @@ export default function BookingModal() {
                     <p className="fs-4 mb-2">
                       <span className="fw-semibold">Pick-up:&nbsp;</span>
                       <br />
-                      106 W 24th St, <br />
-                      NY 10011, <br />
-                      New York, USA
+                      {pickUpPoint.address}, <br />
+                      {pickUpPoint.postalCode}, <br />
+                      {pickUpPoint.city}, {pickUpPoint.country}
                     </p>
                     <p className="fs-4 mb-2">
                       <span className="fw-semibold">Drop-off:&nbsp;</span>
                       <br />
-                      106 W 24th St, <br />
-                      NY 10011, <br />
-                      New York, USA
+                      {dropOffPoint.address}, <br />
+                      {dropOffPoint.postalCode}, <br />
+                      {dropOffPoint.city}, {dropOffPoint.country}
                     </p>
                   </div>
                 </div>
