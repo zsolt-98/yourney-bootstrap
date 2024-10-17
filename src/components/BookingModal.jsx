@@ -109,12 +109,14 @@ export default function BookingModal() {
                 </div>
                 <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
                   <div className="row  border rounded p-3">
-                    <div className="col-12 col-lg-4 d-flex justify-content-start">
-                      <div className="">
+                    <div className="col-12 col-lg-4 d-flex flex-column justify-content-start">
+                      <div>
                         <h3 className="fs-2 fw-semibold mb-3 text-capitalize">
                           Vehicle
                         </h3>
                         <p className="fs-4 mb-2">BMW 228i Gran Coupe</p>
+                      </div>
+                      <div className="d-flex justify-content-center justify-content-lg-start">
                         <img
                           src={BMW228iGranCoupe}
                           alt=""
@@ -125,7 +127,7 @@ export default function BookingModal() {
                     <div className="col-12 col-lg-8 d-flex flex-column align-items-end justify-content-center gap-4">
                       <div className="row w-100">
                         <div className="col-12 d-flex flex-column flex-sm-row gap-0 gap-sm-5">
-                          <div className="d-flex flex-column">
+                          <div className="d-flex flex-column align-items-center align-items-sm-start">
                             <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconPerson width="18" height="18" />
@@ -139,7 +141,7 @@ export default function BookingModal() {
                               <p className="fs-4 mb-2">Automatic</p>
                             </div>
                           </div>
-                          <div className="d-flex flex-column">
+                          <div className="d-flex flex-column align-items-center align-items-sm-start">
                             <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconList width="18" height="18" />
@@ -157,7 +159,7 @@ export default function BookingModal() {
                       </div>
                       <div className="row w-100">
                         <div className="col-12 d-flex flex-column flex-sm-row gap-0 gap-sm-5">
-                          <div className="d-flex flex-column">
+                          <div className="d-flex flex-column align-items-center align-items-sm-start">
                             <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconCheck
@@ -179,7 +181,7 @@ export default function BookingModal() {
                               <p className="fs-4 mb-2">Helpful staff</p>
                             </div>
                           </div>
-                          <div className="d-flex flex-column">
+                          <div className="d-flex flex-column align-items-center align-items-sm-start">
                             <div className="d-flex mb-2">
                               <span className="me-2">
                                 <IconCheck
