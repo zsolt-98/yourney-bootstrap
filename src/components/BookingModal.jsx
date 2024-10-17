@@ -206,7 +206,7 @@ export default function BookingModal() {
                     </div>
                   </div>
                   <div className="row border rounded p-3 mt-5">
-                    <div className="col-12">
+                    <div className="col-12 modal__col--breakdown">
                       <div className="mb-3 border-bottom">
                         <h3 className="fs-2 fw-semibold mb-3 text-capitalize">
                           Price breakdown
