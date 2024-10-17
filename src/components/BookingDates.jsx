@@ -1,6 +1,6 @@
 import IconCalendar from "./react-svg-icons/IconCalendar.jsx";
 
-export default function BookingDates({ htmlFor, name, id }) {
+export default function BookingDates({ htmlFor, name, id, dateType }) {
   return (
     <div className="col">
       <div className="booking__form--input fs-3 d-flex flex-column">
@@ -8,7 +8,7 @@ export default function BookingDates({ htmlFor, name, id }) {
           <span>
             <IconCalendar />
           </span>{" "}
-          Pick-up date
+          {dateType} date
         </label>
 
         <input

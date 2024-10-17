@@ -33,11 +33,13 @@ export default function Booking() {
                   htmlFor="pick-up-date"
                   name="pickUpDate"
                   id="pick-up-date"
+                  dateType="Pick-up"
                 />
                 <BookingDates
                   htmlFor="drop-off-date"
                   name="dropOffDate"
                   id="drop-off-date"
+                  dateType="Drop-off"
                 />
                 <div className="col d-flex flex-column justify-content-end">
                   <button className="booking__content--btn  btn btn-primary  text-white border-0 fs-3 fw-semibold text-capitalize text-nowrap">
