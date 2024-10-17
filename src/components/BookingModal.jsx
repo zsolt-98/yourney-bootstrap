@@ -19,18 +19,13 @@ export default function BookingModal() {
     >
       <div className="modal-dialog modal-xl modal-dialog-centered">
         <div className="modal-content">
-          <div className="modal-header">
-            <h1 className="modal-title fs-5" id="bookingModalLabel">
-              Modal title
-            </h1>
+          <div className="modal-body position-relative">
             <button
               type="button"
-              className="btn-close"
+              className="modal__button--x btn-close position-absolute top-0 end-0 m-4"
               data-bs-dismiss="modal"
               aria-label="Close"
             ></button>
-          </div>
-          <div className="modal-body">
             <div className="p-6 mb-5">
               <h2 className="h1 fw-bold text-dark mb-5">Book your ride</h2>
               <form action="">
@@ -70,7 +65,7 @@ export default function BookingModal() {
                 Rental details
               </h2>
               <div
-                className="row text-dark justify-content-around
+                className="row text-dark justify-content-between
               "
               >
                 <div className="col-lg-12 col-xl-4">
@@ -241,6 +236,19 @@ export default function BookingModal() {
                       </div>
                     </div>
                   </div>
+                </div>
+                <div className="d-flex justify-content-end mt-5 gap-4 px-0">
+                  <button
+                    className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap "
+                    type="button"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  >
+                    Cancel
+                  </button>
+                  <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
+                    Continue
+                  </button>
                 </div>
               </div>
             </div>
