@@ -125,7 +125,7 @@ export default function BookingModal() {
                       </div>
                     </div>
                     <div className="col-12 col-lg-8 d-flex flex-column align-items-end justify-content-center gap-4">
-                      <div className="row w-100 g-0">
+                      <div className="row w-100 g-0 ps-0 ps-lg-7 ps-xl-5 ">
                         <div className="col-12 d-flex flex-column flex-sm-row gap-0 gap-sm-5">
                           <div className="d-flex flex-column align-items-center align-items-sm-start">
                             <div className="d-flex mb-2">
@@ -157,7 +157,7 @@ export default function BookingModal() {
                           </div>
                         </div>
                       </div>
-                      <div className="row w-100 g-0">
+                      <div className="row w-100 g-0 ps-0 ps-lg-7 ps-xl-5 ">
                         <div className="col-12 d-flex flex-column flex-sm-row gap-0 gap-sm-5">
                           <div className="d-flex flex-column align-items-center align-items-sm-start">
                             <div className="d-flex mb-2">
