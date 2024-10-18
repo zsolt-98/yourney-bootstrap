@@ -1,7 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 
 import locationData from "../../../assets/data/locationData.js";
-import vehiclesData from "../../../assets/data/vehiclesData.js";
 
 import BookingModalForm from "./BookingModalForm.jsx";
 import BookingModalDatesLocations from "./BookingModalDatesLocations.jsx";
@@ -13,17 +12,22 @@ export default function BookingModal({ selectedVehicle }) {
   const [dropOffPoint, setDropOffPoint] = useState("");
   const [pickUpDate, setPickUpDate] = useState("");
   const [dropOffDate, setDropOffDate] = useState("");
+  const [showDetails, setShowDetails] = useState(false);
 
+  const modalRef = useRef(null);
+
+  // Pick-up & Drop-off Location selection
   const handlePickUpPointChange = (locationId) => {
     const location = locationData.find((loc) => loc.id === locationId);
-    setPickUpPoint(location);
+    setPickUpPoint(location || "");
   };
 
   const handleDropOffPointChange = (locationId) => {
     const location = locationData.find((loc) => loc.id === locationId);
-    setDropOffPoint(location);
+    setDropOffPoint(location || "");
   };
 
+  // Pick-up & Drop-off Date selection
   const handleDatePickUpChange = (e) => {
     setPickUpDate(e.target.value);
   };
@@ -32,6 +36,7 @@ export default function BookingModal({ selectedVehicle }) {
     setDropOffDate(e.target.value);
   };
 
+  // Date display format for Rental Details (Dates & Times section)
   const formatDate = (date) => {
     const options = {
       weekday: "short",
@@ -42,6 +47,42 @@ export default function BookingModal({ selectedVehicle }) {
     return new Date(date).toLocaleDateString("en-US", options);
   };
 
+  // Display Rental Details by clicking on the "See Details" button
+  const handleSeeDetailsClick = (e) => {
+    e.preventDefault();
+    setShowDetails(true);
+  };
+
+  // Reset the state of the form and the Rental Details section
+  const resetState = () => {
+    setShowDetails(false);
+    setPickUpPoint("");
+    setDropOffPoint("");
+    setPickUpDate("");
+    setDropOffDate("");
+  };
+
+  // Reset the state of the form and Rental Details section, when closing the Bootstrap modal with "Cancel", "X", "Esc", or by clicking on the backdrop of the modal.
+  useEffect(() => {
+    const modalElement = modalRef.current;
+
+    const handleModalHidden = () => {
+      resetState();
+    };
+
+    const handleModalShown = () => {
+      resetState();
+    };
+
+    modalElement.addEventListener("hidden.bs.modal", handleModalHidden);
+    modalElement.addEventListener("shown.bs.modal", handleModalShown);
+
+    return () => {
+      modalElement.removeEventListener("hidden.bs.modal", handleModalHidden);
+      modalElement.removeEventListener("shown.bs.modal", handleModalShown);
+    };
+  }, []);
+
   return (
     <div
       className="modal fade"
@@ -49,6 +90,7 @@ export default function BookingModal({ selectedVehicle }) {
       tabIndex="-1"
       aria-labelledby="bookingModalLabel"
       aria-hidden="true"
+      ref={modalRef}
     >
       <div className="modal-dialog modal-xl modal-dialog-centered">
         <div className="modal-content">
@@ -67,48 +109,55 @@ export default function BookingModal({ selectedVehicle }) {
                 handleDropOffPointChange={handleDropOffPointChange}
                 handleDatePickUpChange={handleDatePickUpChange}
                 handleDateDropOffChange={handleDateDropOffChange}
+                handleSeeDetailsClick={handleSeeDetailsClick}
+                pickUpPoint={pickUpPoint}
+                dropOffPoint={dropOffPoint}
+                pickUpDate={pickUpDate}
+                dropOffDate={dropOffDate}
               />
 
-              <h2 className="h1 fw-bold text-dark my-5 text-capitalize">
-                Rental details
-              </h2>
-              <div
-                className="row text-dark justify-content-between
-              "
-              >
-                <BookingModalDatesLocations
-                  formatDate={formatDate}
-                  pickUpDate={pickUpDate}
-                  dropOffDate={dropOffDate}
-                  pickUpPoint={pickUpPoint}
-                  dropOffPoint={dropOffPoint}
-                />
-
-                <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
-                  <BookingModalCar selectedVehicle={selectedVehicle} />
-
-                  <div className="row border rounded p-3 mt-5">
-                    <BookingModalPrice
-                      selectedVehicle={selectedVehicle}
+              {showDetails && (
+                <div className="modal__rental--details">
+                  <h2 className="h1 fw-bold text-dark my-5 text-capitalize">
+                    Rental details
+                  </h2>
+                  <div
+                    className="row text-dark justify-content-between
+                "
+                  >
+                    <BookingModalDatesLocations
+                      formatDate={formatDate}
                       pickUpDate={pickUpDate}
                       dropOffDate={dropOffDate}
+                      pickUpPoint={pickUpPoint}
+                      dropOffPoint={dropOffPoint}
                     />
+                    <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
+                      <BookingModalCar selectedVehicle={selectedVehicle} />
+                      <div className="row border rounded p-3 mt-5">
+                        <BookingModalPrice
+                          selectedVehicle={selectedVehicle}
+                          pickUpDate={pickUpDate}
+                          dropOffDate={dropOffDate}
+                        />
+                      </div>
+                    </div>
+                    <div className="d-flex justify-content-end mt-5 gap-4 px-0">
+                      <button
+                        className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap "
+                        type="button"
+                        data-bs-dismiss="modal"
+                        aria-label="Close"
+                      >
+                        Cancel
+                      </button>
+                      <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
+                        Continue
+                      </button>
+                    </div>
                   </div>
                 </div>
-                <div className="d-flex justify-content-end mt-5 gap-4 px-0">
-                  <button
-                    className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap "
-                    type="button"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
-                  >
-                    Cancel
-                  </button>
-                  <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
-                    Continue
-                  </button>
-                </div>
-              </div>
+              )}
             </div>
           </div>
         </div>

@@ -6,6 +6,7 @@ export default function BookingDates({
   id,
   dateType,
   onChange,
+  value,
 }) {
   return (
     <div className="col">
@@ -23,6 +24,7 @@ export default function BookingDates({
           id={id}
           className="fs-4 p-3"
           onChange={onChange}
+          value={value}
           onClick={(e) => e.currentTarget.showPicker()}
         />
       </div>

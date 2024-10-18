@@ -8,6 +8,7 @@ export default function BookingLocations({
   LocationType,
   id,
   onChange,
+  value,
 }) {
   return (
     <div className="col">
@@ -18,7 +19,13 @@ export default function BookingLocations({
           </span>{" "}
           {pointType} point
         </label>
-        <select name={name} id={id} className="fs-4 p-3" onChange={onChange}>
+        <select
+          name={name}
+          id={id}
+          className="fs-4 p-3"
+          onChange={onChange}
+          value={value ? value.id : ""}
+        >
           <option defaultValue="">Select {LocationType} location</option>
           {locationData.map(({ id, city, country }) => (
             <option key={id} value={id}>{`${city}, ${country}`}</option>

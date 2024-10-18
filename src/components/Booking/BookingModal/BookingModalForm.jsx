@@ -6,6 +6,11 @@ export default function BookingModalForm({
   handleDropOffPointChange,
   handleDatePickUpChange,
   handleDateDropOffChange,
+  handleSeeDetailsClick,
+  pickUpPoint,
+  dropOffPoint,
+  pickUpDate,
+  dropOffDate,
 }) {
   return (
     <form action="">
@@ -17,6 +22,7 @@ export default function BookingModalForm({
           pointType="Pick-up"
           LocationType="pick-up"
           onChange={(e) => handlePickUpPointChange(e.target.value)}
+          value={pickUpPoint}
         />
         <BookingLocations
           htmlFor="drop-off-location"
@@ -25,6 +31,7 @@ export default function BookingModalForm({
           pointType="Drop-off"
           LocationType="drop-off"
           onChange={(e) => handleDropOffPointChange(e.target.value)}
+          value={dropOffPoint}
         />
         <BookingDates
           htmlFor="pick-up-date"
@@ -32,6 +39,7 @@ export default function BookingModalForm({
           id="pick-up-date"
           dateType="Pick-up"
           onChange={handleDatePickUpChange}
+          value={pickUpDate}
         />
         <BookingDates
           htmlFor="drop-off-date"
@@ -39,10 +47,15 @@ export default function BookingModalForm({
           id="drop-off-date"
           dateType="Drop-off"
           onChange={handleDateDropOffChange}
+          value={dropOffDate}
         />
       </div>
       <div className="d-flex justify-content-center justify-content-lg-end mt-5">
-        <button className="modal__button--details btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
+        <button
+          className="modal__button--details btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap "
+          onClick={handleSeeDetailsClick}
+          type="button"
+        >
           See details
         </button>
       </div>
