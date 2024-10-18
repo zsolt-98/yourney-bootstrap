@@ -25,3 +25,13 @@
     }
   }
 }
+
+.modal__rental--details {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.modal__rental--details.show {
+  opacity: 1;
+}

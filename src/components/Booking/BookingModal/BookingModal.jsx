@@ -13,8 +13,10 @@ export default function BookingModal({ selectedVehicle }) {
   const [pickUpDate, setPickUpDate] = useState("");
   const [dropOffDate, setDropOffDate] = useState("");
   const [showDetails, setShowDetails] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   const modalRef = useRef(null);
+  const detailsRef = useRef(null);
 
   // Pick-up & Drop-off Location selection
   const handlePickUpPointChange = (locationId) => {
@@ -50,17 +52,28 @@ export default function BookingModal({ selectedVehicle }) {
   // Display Rental Details by clicking on the "See Details" button
   const handleSeeDetailsClick = (e) => {
     e.preventDefault();
+    setIsAnimating(true);
     setShowDetails(true);
   };
 
   // Reset the state of the form and the Rental Details section
   const resetState = () => {
     setShowDetails(false);
+    setIsAnimating(false);
     setPickUpPoint("");
     setDropOffPoint("");
     setPickUpDate("");
     setDropOffDate("");
   };
+
+  useEffect(() => {
+    if (showDetails && detailsRef.current) {
+      const height = detailsRef.current.scrollHeight;
+      detailsRef.current.style.maxHeight = `${height}px`;
+    } else if (detailsRef.current) {
+      detailsRef.current.style.maxHeight = "0px";
+    }
+  }, [showDetails]);
 
   // Reset the state of the form and Rental Details section, when closing the Bootstrap modal with "Cancel", "X", "Esc", or by clicking on the backdrop of the modal.
   useEffect(() => {
@@ -116,48 +129,55 @@ export default function BookingModal({ selectedVehicle }) {
                 dropOffDate={dropOffDate}
               />
 
-              {showDetails && (
-                <div className="modal__rental--details">
-                  <h2 className="h1 fw-bold text-dark my-5 text-capitalize">
-                    Rental details
-                  </h2>
-                  <div
-                    className="row text-dark justify-content-between
+              <div
+                ref={detailsRef}
+                className={`modal__rental--details ${
+                  showDetails ? "show" : ""
+                } ${isAnimating ? "animating" : ""}`}
+              >
+                {showDetails && (
+                  <>
+                    <h2 className="h1 fw-bold text-dark my-5 text-capitalize">
+                      Rental details
+                    </h2>
+                    <div
+                      className="row text-dark justify-content-between
                 "
-                  >
-                    <BookingModalDatesLocations
-                      formatDate={formatDate}
-                      pickUpDate={pickUpDate}
-                      dropOffDate={dropOffDate}
-                      pickUpPoint={pickUpPoint}
-                      dropOffPoint={dropOffPoint}
-                    />
-                    <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
-                      <BookingModalCar selectedVehicle={selectedVehicle} />
-                      <div className="row border rounded p-3 mt-5">
-                        <BookingModalPrice
-                          selectedVehicle={selectedVehicle}
-                          pickUpDate={pickUpDate}
-                          dropOffDate={dropOffDate}
-                        />
+                    >
+                      <BookingModalDatesLocations
+                        formatDate={formatDate}
+                        pickUpDate={pickUpDate}
+                        dropOffDate={dropOffDate}
+                        pickUpPoint={pickUpPoint}
+                        dropOffPoint={dropOffPoint}
+                      />
+                      <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
+                        <BookingModalCar selectedVehicle={selectedVehicle} />
+                        <div className="row border rounded p-3 mt-5">
+                          <BookingModalPrice
+                            selectedVehicle={selectedVehicle}
+                            pickUpDate={pickUpDate}
+                            dropOffDate={dropOffDate}
+                          />
+                        </div>
+                      </div>
+                      <div className="d-flex justify-content-end mt-5 gap-4 px-0">
+                        <button
+                          className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap "
+                          type="button"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        >
+                          Cancel
+                        </button>
+                        <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
+                          Continue
+                        </button>
                       </div>
                     </div>
-                    <div className="d-flex justify-content-end mt-5 gap-4 px-0">
-                      <button
-                        className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap "
-                        type="button"
-                        data-bs-dismiss="modal"
-                        aria-label="Close"
-                      >
-                        Cancel
-                      </button>
-                      <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
-                        Continue
-                      </button>
-                    </div>
-                  </div>
-                </div>
-              )}
+                  </>
+                )}
+              </div>
             </div>
           </div>
         </div>
