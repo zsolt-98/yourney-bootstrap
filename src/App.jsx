@@ -1,4 +1,7 @@
-// import { useState } from "react";
+import { useState } from "react";
+
+import vehiclesData from "./assets/data/vehiclesData.js";
+
 import Nav from "./components/Nav.jsx";
 import Hero from "./components/Hero.jsx";
 import Booking from "./components/Booking/Booking.jsx";
@@ -14,13 +17,34 @@ import Footer from "./components/Footer.jsx";
 import "./App.scss";
 
 function App() {
+  const [selectedVehicle, setSelectedVehicle] = useState(vehiclesData[0]);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const handleVehicleSelect = (vehicle) => {
+    setSelectedVehicle((prevVehicle) => {
+      if (prevVehicle !== vehicle) {
+        setImageLoaded(false);
+        return vehicle;
+      }
+      return prevVehicle;
+    });
+  };
+
   return (
     <>
       <Nav></Nav>
       <Hero></Hero>
-      <Booking></Booking>
+      <Booking selectedVehicle={selectedVehicle}></Booking>
       <Cards></Cards>
-      <Vehicles></Vehicles>
+
+      <Vehicles
+        selectedVehicle={selectedVehicle}
+        setSelectedVehicle={setSelectedVehicle}
+        handleVehicleSelect={handleVehicleSelect}
+        imageLoaded={imageLoaded}
+        setImageLoaded={setImageLoaded}
+      ></Vehicles>
+
       <Banner></Banner>
       <WhyChooseUs></WhyChooseUs>
       <Testimonials></Testimonials>

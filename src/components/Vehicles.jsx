@@ -1,20 +1,12 @@
 import { useState, useEffect } from "react";
 import vehiclesData from "../assets/data/vehiclesData.js";
 
-export default function Vehicles() {
-  const [selectedVehicle, setSelectedVehicle] = useState(vehiclesData[0]);
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  const handleVehicleSelect = (vehicle) => {
-    setSelectedVehicle((prevVehicle) => {
-      if (prevVehicle !== vehicle) {
-        setImageLoaded(false);
-        return vehicle;
-      }
-      return prevVehicle;
-    });
-  };
-
+export default function Vehicles({
+  selectedVehicle,
+  handleVehicleSelect,
+  imageLoaded,
+  setImageLoaded,
+}) {
   const preloadImages = (vehicles) => {
     vehicles.forEach(({ imgSource }) => {
       const img = new Image();

@@ -5,7 +5,7 @@ import BookingLocations from "../Booking/BookingLocations.jsx";
 import BookingDates from "../Booking/BookingDates.jsx";
 import BookingModal from "./BookingModal/BookingModal.jsx";
 
-export default function Booking() {
+export default function Booking({ selectedVehicle }) {
   return (
     <>
       <section className="booking pb-8 bg-light">
@@ -57,7 +57,7 @@ export default function Booking() {
             </form>
           </div>
         </div>
-        <BookingModal></BookingModal>
+        <BookingModal selectedVehicle={selectedVehicle}></BookingModal>
       </section>
     </>
   );

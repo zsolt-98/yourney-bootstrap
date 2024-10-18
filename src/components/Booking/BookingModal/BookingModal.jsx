@@ -1,12 +1,14 @@
 import { useState } from "react";
 
 import locationData from "../../../assets/data/locationData.js";
+import vehiclesData from "../../../assets/data/vehiclesData.js";
+
 import BookingModalForm from "./BookingModalForm.jsx";
 import BookingModalDatesLocations from "./BookingModalDatesLocations.jsx";
 import BookingModalCar from "./BookingModalCar.jsx";
 import BookingModalPrice from "./BookingModalPrice.jsx";
 
-export default function BookingModal() {
+export default function BookingModal({ selectedVehicle }) {
   const [pickUpPoint, setPickUpPoint] = useState("");
   const [dropOffPoint, setDropOffPoint] = useState("");
   const [pickUpDate, setPickUpDate] = useState("");
@@ -83,10 +85,14 @@ export default function BookingModal() {
                 />
 
                 <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
-                  <BookingModalCar />
+                  <BookingModalCar selectedVehicle={selectedVehicle} />
 
                   <div className="row border rounded p-3 mt-5">
-                    <BookingModalPrice />
+                    <BookingModalPrice
+                      selectedVehicle={selectedVehicle}
+                      pickUpDate={pickUpDate}
+                      dropOffDate={dropOffDate}
+                    />
                   </div>
                 </div>
                 <div className="d-flex justify-content-end mt-5 gap-4 px-0">

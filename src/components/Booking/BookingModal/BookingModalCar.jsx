@@ -3,18 +3,25 @@ import IconPerson from "../../react-svg-icons/IconPerson.jsx";
 import IconSpeedometer from "../../react-svg-icons/IconSpeedometer.jsx";
 import IconList from "../../react-svg-icons/IconList.jsx";
 import IconCheck from "../../react-svg-icons/IconCheck.jsx";
-import BMW228iGranCoupe from "../../../assets/images/2022-bmw-gran-coupe.png";
 
-export default function BookingModalCar() {
+export default function BookingModalCar({ selectedVehicle }) {
+  const transmission = selectedVehicle.details.find(
+    (detail) => detail.label === "Transmission"
+  );
+
   return (
     <div className="row  border rounded p-3">
       <div className="col-12 col-lg-4 d-flex flex-column justify-content-start">
         <div>
           <h3 className="fs-2 fw-semibold mb-3 text-capitalize">Vehicle</h3>
-          <p className="fs-4 mb-2">BMW 228i Gran Coupe</p>
+          <p className="fs-4 mb-2">{selectedVehicle.name}</p>
         </div>
         <div className="d-flex justify-content-center justify-content-lg-start">
-          <img src={BMW228iGranCoupe} alt="" style={{ height: "120px" }} />
+          <img
+            src={selectedVehicle.imgSource}
+            alt={selectedVehicle.name}
+            style={{ height: "120px" }}
+          />
         </div>
       </div>
       <div className="col-12 col-lg-8 d-flex flex-column align-items-end justify-content-center gap-4">
@@ -25,13 +32,13 @@ export default function BookingModalCar() {
                 <span className="me-2">
                   <IconPerson width="18" height="18" />
                 </span>
-                <p className="fs-4 mb-2">5 seats</p>
+                <p className="fs-4 mb-2">{selectedVehicle.seats} seats</p>
               </div>
               <div className="d-flex mb-2">
                 <span className="me-2">
                   <IconTransmission width="18" height="18" />
                 </span>
-                <p className="fs-4 mb-2">Automatic</p>
+                <p className="fs-4 mb-2">{transmission.value}</p>
               </div>
             </div>
             <div className="d-flex flex-column  align-items-center align-items-sm-start">
@@ -71,7 +78,9 @@ export default function BookingModalCar() {
                 <span className="me-2">
                   <IconCheck width="18" height="18" fill="#0abf53" />
                 </span>
-                <p className="fs-4 mb-2">9.5 star rating</p>
+                <p className="fs-4 mb-2">
+                  {selectedVehicle.rating} star rating
+                </p>
               </div>
               <div className="d-flex mb-2">
                 <span className="me-2">
