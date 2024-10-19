@@ -20,14 +20,16 @@ export default function BookingModal({ selectedVehicle }) {
 
   // Pick-up & Drop-off Location selection
   const handlePickUpPointChange = (locationCity) => {
-    const location = locationData.find((loc) => loc.city === locationCity);
-    console.log(locationCity);
-
+    const location = locationData.find(
+      (loc) => `${loc.city}, ${loc.country}` === locationCity
+    );
     setPickUpPoint(location || "");
   };
 
   const handleDropOffPointChange = (locationCity) => {
-    const location = locationData.find((loc) => loc.city === locationCity);
+    const location = locationData.find(
+      (loc) => `${loc.city}, ${loc.country}` === locationCity
+    );
     setDropOffPoint(location || "");
   };
 
