@@ -10,6 +10,9 @@ export default function BookingLocations({
   onChange,
   value,
 }) {
+  // Handling console warning. This should be changed if the state is lifted up to Booking.jsx
+  const isControlled = onChange !== undefined;
+
   return (
     <div className="col">
       <div className="booking__form--select fs-3 d-flex flex-column">
@@ -24,8 +27,12 @@ export default function BookingLocations({
           id={id}
           className="fs-4 p-3"
           onChange={onChange}
-          value={value ? value.id : ""}
+          {...(isControlled
+            ? { value: value ? value.id : "" }
+            : { defaultValue: "" })}
         >
+          {/* Handling console warning. This should be changed if the state is lifted up to Booking.jsx
+           value={value ? value.id : ""}  */}
           <option defaultValue="">Select {LocationType} location</option>
           {locationData.map(({ id, city, country }) => (
             <option key={id} value={id}>{`${city}, ${country}`}</option>
