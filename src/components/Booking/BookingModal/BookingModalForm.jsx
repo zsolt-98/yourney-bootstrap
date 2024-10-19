@@ -21,7 +21,9 @@ export default function BookingModalForm({
           id="pick-up-location"
           pointType="Pick-up"
           LocationType="pick-up"
-          onChange={(e) => handlePickUpPointChange(e.target.value)}
+          onChange={(e) =>
+            handlePickUpPointChange(e.target.selectedOptions[0].text)
+          }
           value={pickUpPoint}
         />
         <BookingLocations
@@ -30,7 +32,9 @@ export default function BookingModalForm({
           id="drop-off-location"
           pointType="Drop-off"
           LocationType="drop-off"
-          onChange={(e) => handleDropOffPointChange(e.target.value)}
+          onChange={(e) =>
+            handleDropOffPointChange(e.target.selectedOptions[0].text)
+          }
           value={dropOffPoint}
         />
         <BookingDates

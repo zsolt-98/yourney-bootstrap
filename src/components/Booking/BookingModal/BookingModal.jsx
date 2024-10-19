@@ -19,13 +19,17 @@ export default function BookingModal({ selectedVehicle }) {
   const detailsRef = useRef(null);
 
   // Pick-up & Drop-off Location selection
-  const handlePickUpPointChange = (locationId) => {
-    const location = locationData.find((loc) => loc.id === locationId);
+  const handlePickUpPointChange = (locationCity) => {
+    const location = locationData.find(
+      (loc) => `${loc.city}, ${loc.country}` === locationCity
+    );
     setPickUpPoint(location || "");
   };
 
-  const handleDropOffPointChange = (locationId) => {
-    const location = locationData.find((loc) => loc.id === locationId);
+  const handleDropOffPointChange = (locationCity) => {
+    const location = locationData.find(
+      (loc) => `${loc.city}, ${loc.country}` === locationCity
+    );
     setDropOffPoint(location || "");
   };
 
@@ -83,16 +87,10 @@ export default function BookingModal({ selectedVehicle }) {
       resetState();
     };
 
-    const handleModalShown = () => {
-      resetState();
-    };
-
     modalElement.addEventListener("hidden.bs.modal", handleModalHidden);
-    modalElement.addEventListener("shown.bs.modal", handleModalShown);
 
     return () => {
       modalElement.removeEventListener("hidden.bs.modal", handleModalHidden);
-      modalElement.removeEventListener("shown.bs.modal", handleModalShown);
     };
   }, []);
 

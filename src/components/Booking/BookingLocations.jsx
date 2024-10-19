@@ -26,16 +26,17 @@ export default function BookingLocations({
           name={name}
           id={id}
           className="fs-4 p-3"
-          onChange={onChange}
-          {...(isControlled
-            ? { value: value ? value.id : "" }
-            : { defaultValue: "" })}
+          onChange={(e) => onChange(e)}
+          value={value ? `${value.city}, ${value.country}` : ""}
         >
           {/* Handling console warning. This should be changed if the state is lifted up to Booking.jsx
            value={value ? value.id : ""}  */}
           <option defaultValue="">Select {LocationType} location</option>
           {locationData.map(({ id, city, country }) => (
-            <option key={id} value={id}>{`${city}, ${country}`}</option>
+            <option
+              key={id}
+              value={`${city}, ${country}`}
+            >{`${city}, ${country}`}</option>
           ))}
         </select>
       </div>
