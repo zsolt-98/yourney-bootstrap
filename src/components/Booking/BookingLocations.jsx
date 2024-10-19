@@ -23,12 +23,12 @@ export default function BookingLocations({
           name={name}
           id={id}
           className="fs-4 p-3"
-          onChange={onChange}
-          value={value ? value.id : ""}
+          onChange={(e) => onChange(e)}
+          value={value ? value.city : ""}
         >
           <option defaultValue="">Select {LocationType} location</option>
           {locationData.map(({ id, city, country }) => (
-            <option key={id} value={id}>{`${city}, ${country}`}</option>
+            <option key={id} value={city}>{`${city}, ${country}`}</option>
           ))}
         </select>
       </div>
