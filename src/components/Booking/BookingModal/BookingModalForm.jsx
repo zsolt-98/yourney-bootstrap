@@ -1,5 +1,8 @@
+import { useEffect, useState } from "react";
 import BookingLocations from "../BookingLocations.jsx";
 import BookingDates from "../BookingDates.jsx";
+
+import IconExclamation from "../../react-svg-icons/IconExclamation.jsx";
 
 export default function BookingModalForm({
   handlePickUpPointChange,
@@ -11,7 +14,19 @@ export default function BookingModalForm({
   dropOffPoint,
   pickUpDate,
   dropOffDate,
+  isFormValid,
+  detailsButtonClicked,
 }) {
+  const [showError, setShowError] = useState(false);
+
+  useEffect(() => {
+    if (!isFormValid && detailsButtonClicked) {
+      setShowError(true);
+    } else {
+      setShowError(false);
+    }
+  }, [isFormValid, detailsButtonClicked]);
+
   return (
     <form action="">
       <div className="row row-cols-1 row-cols-lg-2 g-4">
@@ -53,6 +68,20 @@ export default function BookingModalForm({
           onChange={handleDateDropOffChange}
           value={dropOffDate}
         />
+        {!isFormValid && detailsButtonClicked && (
+          <div
+            className={`modal__error--message col ${showError ? "show" : ""}`}
+          >
+            <div className="text-danger border border-danger rounded-1 p-3">
+              <p className="fs-3 mb-0 d-inline-flex align-items-center">
+                <span className="me-2 d-inline-flex align-items-center">
+                  <IconExclamation />
+                </span>
+                Please fill out all of the fields
+              </p>
+            </div>
+          </div>
+        )}
       </div>
       <div className="d-flex justify-content-center justify-content-lg-end mt-5">
         <button

@@ -8,6 +8,12 @@ export default function BookingDates({
   onChange,
   value,
 }) {
+  const today = new Date().toISOString().split("T")[0];
+  const maxRentalDays = 45;
+  const maxDate = new Date();
+  maxDate.setDate(maxDate.getDate() + maxRentalDays);
+  const maxDateString = maxDate.toISOString().split("T")[0];
+
   return (
     <div className="col">
       <div className="booking__form--input fs-3 d-flex flex-column">
@@ -23,6 +29,8 @@ export default function BookingDates({
           name={name}
           id={id}
           className="fs-4 p-3"
+          min={today}
+          max={maxDateString}
           onChange={onChange}
           value={value}
           onClick={(e) => e.currentTarget.showPicker()}

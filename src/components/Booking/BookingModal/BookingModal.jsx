@@ -14,6 +14,8 @@ export default function BookingModal({ selectedVehicle }) {
   const [dropOffDate, setDropOffDate] = useState("");
   const [showDetails, setShowDetails] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isFormValid, setIsFormValid] = useState(true);
+  const [detailsButtonClicked, setDetailsButtonClicked] = useState(false);
 
   const modalRef = useRef(null);
   const detailsRef = useRef(null);
@@ -53,11 +55,23 @@ export default function BookingModal({ selectedVehicle }) {
     return new Date(date).toLocaleDateString("en-US", options);
   };
 
+  // Check form validity
+  const checkFormValidity = () => {
+    return pickUpPoint && dropOffPoint && pickUpDate && dropOffDate;
+  };
+
   // Display Rental Details by clicking on the "See Details" button
   const handleSeeDetailsClick = (e) => {
     e.preventDefault();
-    setIsAnimating(true);
-    setShowDetails(true);
+    setDetailsButtonClicked(true);
+    if (checkFormValidity()) {
+      setIsAnimating(true);
+      setShowDetails(true);
+      setIsFormValid(true);
+    } else {
+      setIsFormValid(false);
+      setShowDetails(false);
+    }
   };
 
   // Reset the state of the form and the Rental Details section
@@ -68,6 +82,8 @@ export default function BookingModal({ selectedVehicle }) {
     setDropOffPoint("");
     setPickUpDate("");
     setDropOffDate("");
+    setIsFormValid(true);
+    setDetailsButtonClicked(false);
   };
 
   useEffect(() => {
@@ -125,6 +141,8 @@ export default function BookingModal({ selectedVehicle }) {
                 dropOffPoint={dropOffPoint}
                 pickUpDate={pickUpDate}
                 dropOffDate={dropOffDate}
+                isFormValid={isFormValid}
+                detailsButtonClicked={detailsButtonClicked}
               />
 
               <div
