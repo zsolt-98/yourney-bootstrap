@@ -10,7 +10,7 @@ export default function BookingModalCar({ selectedVehicle }) {
   );
 
   return (
-    <div className="row  border rounded p-3">
+    <div className="row mx-0 border rounded p-3">
       <div className="col-12 col-lg-4 d-flex flex-column justify-content-start">
         <div>
           <h3 className="fs-2 fw-semibold mb-3 text-capitalize">Vehicle</h3>

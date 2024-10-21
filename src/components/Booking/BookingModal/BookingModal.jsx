@@ -13,6 +13,7 @@ export default function BookingModal({ selectedVehicle }) {
   const [pickUpDate, setPickUpDate] = useState("");
   const [dropOffDate, setDropOffDate] = useState("");
   const [showDetails, setShowDetails] = useState(false);
+  const [isDetailsVisible, setIsDetailsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
   const [isFormValid, setIsFormValid] = useState(true);
   const [detailsButtonClicked, setDetailsButtonClicked] = useState(false);
@@ -65,12 +66,18 @@ export default function BookingModal({ selectedVehicle }) {
     e.preventDefault();
     setDetailsButtonClicked(true);
     if (checkFormValidity()) {
-      setIsAnimating(true);
       setShowDetails(true);
+      setIsDetailsVisible(true);
       setIsFormValid(true);
     } else {
       setIsFormValid(false);
-      setShowDetails(false);
+      setIsDetailsVisible(false);
+      setIsAnimating(true);
+
+      setTimeout(() => {
+        setShowDetails(false);
+        setIsAnimating(false);
+      }, 300);
     }
   };
 
@@ -87,13 +94,23 @@ export default function BookingModal({ selectedVehicle }) {
   };
 
   useEffect(() => {
-    if (showDetails && detailsRef.current) {
+    if (!checkFormValidity()) {
+      setIsDetailsVisible(false);
+      setIsAnimating(true);
+
+      setTimeout(() => {
+        setShowDetails(false);
+        setIsAnimating(false);
+      }, 300);
+    }
+
+    if (isDetailsVisible && detailsRef.current) {
       const height = detailsRef.current.scrollHeight;
       detailsRef.current.style.maxHeight = `${height}px`;
     } else if (detailsRef.current) {
       detailsRef.current.style.maxHeight = "0px";
     }
-  }, [showDetails]);
+  }, [isDetailsVisible, pickUpPoint, dropOffPoint, pickUpDate, dropOffDate]);
 
   // Reset the state of the form and Rental Details section, when closing the Bootstrap modal with "Cancel", "X", "Esc", or by clicking on the backdrop of the modal.
   useEffect(() => {
@@ -149,7 +166,7 @@ export default function BookingModal({ selectedVehicle }) {
                 ref={detailsRef}
                 className={`modal__rental--details ${
                   showDetails ? "show" : ""
-                } ${isAnimating ? "animating" : ""}`}
+                } ${isDetailsVisible ? "visible" : ""}`}
               >
                 {showDetails && (
                   <>
@@ -157,7 +174,8 @@ export default function BookingModal({ selectedVehicle }) {
                       Rental details
                     </h2>
                     <div
-                      className="row text-dark justify-content-between
+                      className="row mx-0
+                       text-dark justify-content-between
                 "
                     >
                       <BookingModalDatesLocations
@@ -169,26 +187,26 @@ export default function BookingModal({ selectedVehicle }) {
                       />
                       <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
                         <BookingModalCar selectedVehicle={selectedVehicle} />
-                        <div className="row border rounded p-3 mt-5">
+                        <div className="row mx-0 border rounded p-3 mt-5">
                           <BookingModalPrice
                             selectedVehicle={selectedVehicle}
                             pickUpDate={pickUpDate}
                             dropOffDate={dropOffDate}
                           />
                         </div>
-                      </div>
-                      <div className="d-flex justify-content-end mt-5 gap-4 px-0">
-                        <button
-                          className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap "
-                          type="button"
-                          data-bs-dismiss="modal"
-                          aria-label="Close"
-                        >
-                          Cancel
-                        </button>
-                        <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
-                          Continue
-                        </button>
+                        <div className="d-flex justify-content-end mt-5 gap-4 px-0">
+                          <button
+                            className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap "
+                            type="button"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          >
+                            Cancel
+                          </button>
+                          <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
+                            Continue
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </>
