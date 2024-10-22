@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 
 import locationData from "../../../assets/data/locationData.js";
 
@@ -35,6 +35,7 @@ export default function BookingModal({ selectedVehicle }) {
     );
     setDropOffPoint(location || "");
   };
+  ///////////////////////////////////////////////
 
   // Pick-up & Drop-off Date selection
   const handleDatePickUpChange = (e) => {
@@ -44,6 +45,7 @@ export default function BookingModal({ selectedVehicle }) {
   const handleDateDropOffChange = (e) => {
     setDropOffDate(e.target.value);
   };
+  ///////////////////////////////////////////////
 
   // Date display format for Rental Details (Dates & Times section)
   const formatDate = (date) => {
@@ -57,14 +59,15 @@ export default function BookingModal({ selectedVehicle }) {
   };
 
   // Check form validity
-  const checkFormValidity = () => {
+  const checkFormValidity = useCallback(() => {
     return pickUpPoint && dropOffPoint && pickUpDate && dropOffDate;
-  };
+  }, [pickUpPoint, dropOffPoint, pickUpDate, dropOffDate]);
 
   // Display Rental Details by clicking on the "See Details" button
   const handleSeeDetailsClick = (e) => {
     e.preventDefault();
     setDetailsButtonClicked(true);
+    // Validate the inputs
     if (checkFormValidity()) {
       setShowDetails(true);
       setIsDetailsVisible(true);
@@ -93,11 +96,14 @@ export default function BookingModal({ selectedVehicle }) {
     setDetailsButtonClicked(false);
   };
 
+  // This effect handles the animation of the details section
   useEffect(() => {
+    // If any of the inputs are false, the details section disappears with a smooth animation
     if (!checkFormValidity()) {
       setIsDetailsVisible(false);
       setIsAnimating(true);
 
+      // The timeout waits for the animation to finish, before the element is removed from the DOM
       setTimeout(() => {
         setShowDetails(false);
         setIsAnimating(false);
@@ -106,11 +112,18 @@ export default function BookingModal({ selectedVehicle }) {
 
     if (isDetailsVisible && detailsRef.current) {
       const height = detailsRef.current.scrollHeight;
-      detailsRef.current.style.maxHeight = `${height}px`;
+      detailsRef.current.style.maxHeight = `${height * 2}px`;
     } else if (detailsRef.current) {
       detailsRef.current.style.maxHeight = "0px";
     }
-  }, [isDetailsVisible, pickUpPoint, dropOffPoint, pickUpDate, dropOffDate]);
+  }, [
+    checkFormValidity,
+    isDetailsVisible,
+    pickUpPoint,
+    dropOffPoint,
+    pickUpDate,
+    dropOffDate,
+  ]);
 
   // Reset the state of the form and Rental Details section, when closing the Bootstrap modal with "Cancel", "X", "Esc", or by clicking on the backdrop of the modal.
   useEffect(() => {
@@ -166,7 +179,9 @@ export default function BookingModal({ selectedVehicle }) {
                 ref={detailsRef}
                 className={`modal__rental--details ${
                   showDetails ? "show" : ""
-                } ${isDetailsVisible ? "visible" : ""}`}
+                } ${isDetailsVisible ? "visible" : ""} ${
+                  isAnimating ? "animating" : ""
+                }`}
               >
                 {showDetails && (
                   <>

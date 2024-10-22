@@ -67,6 +67,7 @@ export default function BookingModalForm({
           dateType="Drop-off"
           onChange={handleDateDropOffChange}
           value={dropOffDate}
+          pickUpDate={pickUpDate}
         />
         {!isFormValid && detailsButtonClicked && (
           <div
