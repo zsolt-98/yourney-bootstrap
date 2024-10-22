@@ -19,6 +19,7 @@ export default function BookingModalForm({
 }) {
   const [showError, setShowError] = useState(false);
 
+  // Display the error message when the "See Details" button is clicked, if any of the inputs is false
   useEffect(() => {
     if (!isFormValid && detailsButtonClicked) {
       setShowError(true);

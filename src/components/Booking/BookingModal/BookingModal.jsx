@@ -73,7 +73,7 @@ export default function BookingModal({ selectedVehicle }) {
       setTimeout(() => {
         setShowDetails(false);
         setIsAnimating(false);
-      }, 300);
+      }, 800);
     }
   };
   ///////////////////////////////////////////////
@@ -89,7 +89,7 @@ export default function BookingModal({ selectedVehicle }) {
       setTimeout(() => {
         setShowDetails(false);
         setIsAnimating(false);
-      }, 300);
+      }, 800);
     }
 
     // Responsible for the in and out animation
@@ -107,6 +107,7 @@ export default function BookingModal({ selectedVehicle }) {
     pickUpDate,
     dropOffDate,
   ]);
+  ///////////////////////////////////////////////
 
   // Reset the state of the form and the Rental Details section
   const resetState = () => {
@@ -119,6 +120,7 @@ export default function BookingModal({ selectedVehicle }) {
     setIsFormValid(true);
     setDetailsButtonClicked(false);
   };
+  ///////////////////////////////////////////////
 
   // Reset the state of the form and Rental Details section, when closing the Bootstrap modal with "Cancel", "X", "Esc", or by clicking on the backdrop of the modal.
   useEffect(() => {
@@ -134,6 +136,7 @@ export default function BookingModal({ selectedVehicle }) {
       modalElement.removeEventListener("hidden.bs.modal", handleModalHidden);
     };
   }, []);
+  ///////////////////////////////////////////////
 
   return (
     <div

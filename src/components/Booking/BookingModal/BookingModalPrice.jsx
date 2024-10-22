@@ -3,6 +3,7 @@ export default function BookingModalPrice({
   pickUpDate,
   dropOffDate,
 }) {
+  // Calculating the price of the rental
   const firstDay = new Date(pickUpDate);
   const lastDay = new Date(dropOffDate);
   const timeDiff = lastDay - firstDay;
