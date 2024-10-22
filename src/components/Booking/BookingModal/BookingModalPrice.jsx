@@ -7,7 +7,8 @@ export default function BookingModalPrice({
   const firstDay = new Date(pickUpDate);
   const lastDay = new Date(dropOffDate);
   const timeDiff = lastDay - firstDay;
-  const numberOfDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  // Set minimum number of days to 1
+  const numberOfDays = Math.max(1, Math.ceil(timeDiff / (1000 * 3600 * 24)));
 
   const dailyPrice = selectedVehicle.price;
   const basePrice = dailyPrice * numberOfDays;

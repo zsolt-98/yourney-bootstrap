@@ -9,6 +9,7 @@ export default function BookingDates({
   onChange,
   value,
   pickUpDate,
+  dropOffDate,
 }) {
   const [minDateString, setMinDateString] = useState("");
   const [maxDateString, setMaxDateString] = useState("");
@@ -18,15 +19,28 @@ export default function BookingDates({
     const today = new Date().toISOString().split("T")[0];
     const maxRentalDays = 45;
 
+    // For the pick-up date input
     if (dateType === "Pick-up") {
       setMinDateString(today);
-      setMaxDateString("");
+
+      // If a drop-off date is already specified, then a pick-up date after the drop-off date can't be selected, so the price doesn't go into the negatives
+      if (dropOffDate) {
+        const maxPickUp = new Date(dropOffDate);
+        maxPickUp.setDate(maxPickUp.getDate() - 1);
+        setMaxDateString(maxPickUp.toISOString().split("T")[0]);
+      } else {
+        // If no drop-off date is set, allow any future date
+        setMaxDateString("");
+      }
     } else {
+      // For the drop-off date input
       if (pickUpDate) {
+        // Drop-off must be at least 1 day after pick-up date
         const minDate = new Date(pickUpDate);
         minDate.setDate(minDate.getDate() + 1);
         setMinDateString(minDate.toISOString().split("T")[0]);
 
+        // Maximum rental period from pick-up date
         const maxDate = new Date(pickUpDate);
         maxDate.setDate(maxDate.getDate() + maxRentalDays);
         setMaxDateString(maxDate.toISOString().split("T")[0]);
@@ -35,7 +49,7 @@ export default function BookingDates({
         setMaxDateString("");
       }
     }
-  }, [dateType, pickUpDate]);
+  }, [dateType, pickUpDate, dropOffDate]);
 
   return (
     <div className="col">

@@ -60,6 +60,7 @@ export default function BookingModalForm({
           dateType="Pick-up"
           onChange={handleDatePickUpChange}
           value={pickUpDate}
+          dropOffDate={dropOffDate}
         />
         <BookingDates
           htmlFor="drop-off-date"
