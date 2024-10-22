@@ -12,10 +12,10 @@ export default function BookingDates({
 }) {
   const [minDateString, setMinDateString] = useState("");
   const [maxDateString, setMaxDateString] = useState("");
-  const today = new Date().toISOString().split("T")[0];
 
   useEffect(() => {
-    // Sets the min date to be today, and sets the max rental days to be 45 days from the selected pick-up date
+    // Sets the min pick-up date to be today, and sets the max rental days to be 45 days from the selected pick-up date
+    const today = new Date().toISOString().split("T")[0];
     const maxRentalDays = 45;
 
     if (dateType === "Pick-up") {
@@ -35,7 +35,7 @@ export default function BookingDates({
         setMaxDateString("");
       }
     }
-  }, [dateType, pickUpDate, today]);
+  }, [dateType, pickUpDate]);
 
   return (
     <div className="col">

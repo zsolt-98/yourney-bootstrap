@@ -47,32 +47,25 @@ export default function BookingModal({ selectedVehicle }) {
   };
   ///////////////////////////////////////////////
 
-  // Date display format for Rental Details (Dates & Times section)
-  const formatDate = (date) => {
-    const options = {
-      weekday: "short",
-      year: "numeric",
-      month: "short",
-      day: "numeric",
-    };
-    return new Date(date).toLocaleDateString("en-US", options);
-  };
-
   // Check form validity
   const checkFormValidity = useCallback(() => {
     return pickUpPoint && dropOffPoint && pickUpDate && dropOffDate;
   }, [pickUpPoint, dropOffPoint, pickUpDate, dropOffDate]);
+  ///////////////////////////////////////////////
 
-  // Display Rental Details by clicking on the "See Details" button
+  // Conditionally make the Rental Details section visible or removed from the DOM
+  // When clicking on the "See Details" button
   const handleSeeDetailsClick = (e) => {
     e.preventDefault();
     setDetailsButtonClicked(true);
     // Validate the inputs
     if (checkFormValidity()) {
-      setShowDetails(true);
-      setIsDetailsVisible(true);
+      // If all inputs return true, the See Details section becomes visible with a smooth animation
       setIsFormValid(true);
+      setIsDetailsVisible(true);
+      setShowDetails(true);
     } else {
+      // If any of the inputs become false, the See Details section disappears, with a smooth animation. After the Timeout, it's removed from the DOM
       setIsFormValid(false);
       setIsDetailsVisible(false);
       setIsAnimating(true);
@@ -83,18 +76,7 @@ export default function BookingModal({ selectedVehicle }) {
       }, 300);
     }
   };
-
-  // Reset the state of the form and the Rental Details section
-  const resetState = () => {
-    setShowDetails(false);
-    setIsAnimating(false);
-    setPickUpPoint("");
-    setDropOffPoint("");
-    setPickUpDate("");
-    setDropOffDate("");
-    setIsFormValid(true);
-    setDetailsButtonClicked(false);
-  };
+  ///////////////////////////////////////////////
 
   // This effect handles the animation of the details section
   useEffect(() => {
@@ -103,13 +85,14 @@ export default function BookingModal({ selectedVehicle }) {
       setIsDetailsVisible(false);
       setIsAnimating(true);
 
-      // The timeout waits for the animation to finish, before the element is removed from the DOM
+      // The Timeout waits for the animation to finish, before the element is removed from the DOM
       setTimeout(() => {
         setShowDetails(false);
         setIsAnimating(false);
       }, 300);
     }
 
+    // Responsible for the in and out animation
     if (isDetailsVisible && detailsRef.current) {
       const height = detailsRef.current.scrollHeight;
       detailsRef.current.style.maxHeight = `${height * 2}px`;
@@ -124,6 +107,18 @@ export default function BookingModal({ selectedVehicle }) {
     pickUpDate,
     dropOffDate,
   ]);
+
+  // Reset the state of the form and the Rental Details section
+  const resetState = () => {
+    setShowDetails(false);
+    setIsAnimating(false);
+    setPickUpPoint("");
+    setDropOffPoint("");
+    setPickUpDate("");
+    setDropOffDate("");
+    setIsFormValid(true);
+    setDetailsButtonClicked(false);
+  };
 
   // Reset the state of the form and Rental Details section, when closing the Bootstrap modal with "Cancel", "X", "Esc", or by clicking on the backdrop of the modal.
   useEffect(() => {
@@ -189,18 +184,16 @@ export default function BookingModal({ selectedVehicle }) {
                       Rental details
                     </h2>
                     <div
-                      className="row mx-0
-                       text-dark justify-content-between
+                      className="row  mx-0 text-dark pt-4 justify-content-between
                 "
                     >
                       <BookingModalDatesLocations
-                        formatDate={formatDate}
                         pickUpDate={pickUpDate}
                         dropOffDate={dropOffDate}
                         pickUpPoint={pickUpPoint}
                         dropOffPoint={dropOffPoint}
                       />
-                      <div className="col-lg-12 col-xl-7 mt-5 mt-xl-0">
+                      <div className="col-lg-12 col-xl-7 px-0 mt-5 mt-xl-0">
                         <BookingModalCar selectedVehicle={selectedVehicle} />
                         <div className="row mx-0 border rounded p-3 mt-5">
                           <BookingModalPrice

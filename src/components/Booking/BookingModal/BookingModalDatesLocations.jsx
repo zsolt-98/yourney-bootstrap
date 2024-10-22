@@ -1,10 +1,20 @@
 export default function BookingModalDatesLocations({
-  formatDate,
   pickUpDate,
   dropOffDate,
   pickUpPoint,
   dropOffPoint,
 }) {
+  // Date display format for Rental Details (Dates & Times section)
+  const formatDate = (date) => {
+    const options = {
+      weekday: "short",
+      year: "numeric",
+      month: "short",
+      day: "numeric",
+    };
+    return new Date(date).toLocaleDateString("en-US", options);
+  };
+
   return (
     <div className="col-lg-12 col-xl-4">
       <div className="row border rounded p-3">
