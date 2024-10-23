@@ -70,6 +70,7 @@ export default function BookingDates({
           max={maxDateString}
           onChange={onChange}
           value={value}
+          style={{ "::-webkit-clear-button": { display: "none" } }}
           onClick={(e) => e.currentTarget.showPicker()}
           disabled={dateType === "Drop-off" && !pickUpDate}
         />

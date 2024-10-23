@@ -1,7 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-
 import locationData from "../../../assets/data/locationData.js";
-
 import BookingModalForm from "./BookingModalForm.jsx";
 import BookingModalDatesLocations from "./BookingModalDatesLocations.jsx";
 import BookingModalCar from "./BookingModalCar.jsx";
@@ -20,6 +18,7 @@ export default function BookingModal({ selectedVehicle }) {
 
   const modalRef = useRef(null);
   const detailsRef = useRef(null);
+  const collapseTimeoutRef = useRef(null);
 
   // Pick-up & Drop-off Location selection
   const handlePickUpPointChange = (locationCity) => {
@@ -35,9 +34,7 @@ export default function BookingModal({ selectedVehicle }) {
     );
     setDropOffPoint(location || "");
   };
-  ///////////////////////////////////////////////
 
-  // Pick-up & Drop-off Date selection
   const handleDatePickUpChange = (e) => {
     setPickUpDate(e.target.value);
   };
@@ -45,72 +42,59 @@ export default function BookingModal({ selectedVehicle }) {
   const handleDateDropOffChange = (e) => {
     setDropOffDate(e.target.value);
   };
-  ///////////////////////////////////////////////
 
-  // Check form validity
   const checkFormValidity = useCallback(() => {
     return pickUpPoint && dropOffPoint && pickUpDate && dropOffDate;
   }, [pickUpPoint, dropOffPoint, pickUpDate, dropOffDate]);
-  ///////////////////////////////////////////////
 
-  // Conditionally make the Rental Details section visible or removed from the DOM
-  // When clicking on the "See Details" button
+  const startCollapseAnimation = () => {
+    // Clear any existing collapse timeout
+    if (collapseTimeoutRef.current) {
+      clearTimeout(collapseTimeoutRef.current);
+    }
+
+    setIsFormValid(false);
+    setIsDetailsVisible(false);
+    setIsAnimating(true);
+
+    collapseTimeoutRef.current = setTimeout(() => {
+      setShowDetails(false);
+      setIsAnimating(false);
+      collapseTimeoutRef.current = null;
+    }, 800);
+  };
+
   const handleSeeDetailsClick = (e) => {
     e.preventDefault();
     setDetailsButtonClicked(true);
-    // Validate the inputs
+
     if (checkFormValidity()) {
-      // If all inputs return true, the See Details section becomes visible with a smooth animation
       setIsFormValid(true);
       setIsDetailsVisible(true);
       setShowDetails(true);
     } else {
-      // If any of the inputs become false, the See Details section disappears, with a smooth animation. After the Timeout, it's removed from the DOM
-      setIsFormValid(false);
-      setIsDetailsVisible(false);
-      setIsAnimating(true);
-
-      setTimeout(() => {
-        setShowDetails(false);
-        setIsAnimating(false);
-      }, 800);
+      startCollapseAnimation();
     }
   };
-  ///////////////////////////////////////////////
 
-  // This effect handles the animation of the details section
   useEffect(() => {
-    // If any of the inputs are false, the details section disappears with a smooth animation
-    if (!checkFormValidity()) {
-      setIsDetailsVisible(false);
-      setIsAnimating(true);
-
-      // The Timeout waits for the animation to finish, before the element is removed from the DOM
-      setTimeout(() => {
-        setShowDetails(false);
-        setIsAnimating(false);
-      }, 800);
+    // Only trigger collapse if details are currently visible and form becomes invalid
+    if (!checkFormValidity() && isDetailsVisible && !isAnimating) {
+      startCollapseAnimation();
     }
 
-    // Responsible for the in and out animation
     if (isDetailsVisible && detailsRef.current) {
       const height = detailsRef.current.scrollHeight;
       detailsRef.current.style.maxHeight = `${height * 2}px`;
     } else if (detailsRef.current) {
       detailsRef.current.style.maxHeight = "0px";
     }
-  }, [
-    checkFormValidity,
-    isDetailsVisible,
-    pickUpPoint,
-    dropOffPoint,
-    pickUpDate,
-    dropOffDate,
-  ]);
-  ///////////////////////////////////////////////
+  }, [checkFormValidity, isDetailsVisible, isAnimating]);
 
-  // Reset the state of the form and the Rental Details section
   const resetState = () => {
+    if (collapseTimeoutRef.current) {
+      clearTimeout(collapseTimeoutRef.current);
+    }
     setShowDetails(false);
     setIsAnimating(false);
     setPickUpPoint("");
@@ -120,23 +104,17 @@ export default function BookingModal({ selectedVehicle }) {
     setIsFormValid(true);
     setDetailsButtonClicked(false);
   };
-  ///////////////////////////////////////////////
 
-  // Reset the state of the form and Rental Details section, when closing the Bootstrap modal with "Cancel", "X", "Esc", or by clicking on the backdrop of the modal.
   useEffect(() => {
     const modalElement = modalRef.current;
-
     const handleModalHidden = () => {
       resetState();
     };
-
     modalElement.addEventListener("hidden.bs.modal", handleModalHidden);
-
     return () => {
       modalElement.removeEventListener("hidden.bs.modal", handleModalHidden);
     };
   }, []);
-  ///////////////////////////////////////////////
 
   return (
     <div
@@ -186,10 +164,7 @@ export default function BookingModal({ selectedVehicle }) {
                     <h2 className="h1 fw-bold text-dark my-5 text-capitalize">
                       Rental details
                     </h2>
-                    <div
-                      className="row  mx-0 text-dark pt-4 justify-content-between
-                "
-                    >
+                    <div className="row mx-0 text-dark pt-4 justify-content-between">
                       <BookingModalDatesLocations
                         pickUpDate={pickUpDate}
                         dropOffDate={dropOffDate}
@@ -207,14 +182,14 @@ export default function BookingModal({ selectedVehicle }) {
                         </div>
                         <div className="d-flex justify-content-end mt-5 gap-4 px-0">
                           <button
-                            className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap "
+                            className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap"
                             type="button"
                             data-bs-dismiss="modal"
                             aria-label="Close"
                           >
                             Cancel
                           </button>
-                          <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ">
+                          <button className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap">
                             Continue
                           </button>
                         </div>
