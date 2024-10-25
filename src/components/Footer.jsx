@@ -29,7 +29,7 @@ export default function Footer() {
                 </p>
                 <p className="">
                   <span className="pe-2 footer__icon--main">
-                    <IconEmail />
+                    <IconEmail width="30" height="30" />
                   </span>{" "}
                   info@yourney.com
                 </p>

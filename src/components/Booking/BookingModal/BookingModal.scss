@@ -6,10 +6,26 @@
       @media (max-width: 991px) {
         width: 100%;
       }
+
+      &:hover {
+        background-color: $secondary !important;
+      }
     }
 
     &--x {
       font-size: 2rem !important;
+    }
+
+    &--cancel {
+      &:hover {
+        color: white !important;
+      }
+    }
+
+    &--continue {
+      &:hover {
+        background-color: $secondary !important;
+      }
     }
   }
 

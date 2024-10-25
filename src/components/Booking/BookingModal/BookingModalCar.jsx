@@ -30,7 +30,7 @@ export default function BookingModalCar({ selectedVehicle }) {
             <div className="d-flex flex-column align-items-center align-items-sm-start">
               <div className="d-flex mb-2">
                 <span className="me-2">
-                  <IconPerson width="18" height="18" />
+                  <IconPerson width="21" height="21" />
                 </span>
                 <p className="fs-4 mb-2">{selectedVehicle.seats} seats</p>
               </div>
