@@ -7,12 +7,16 @@ export default function BookingModalConfirmContact({
   type,
   pattern,
   title,
+  required,
+  placeholder,
+  span,
+  disabled,
 }) {
   return (
     <>
-      <div className="booking__form--input fs-3 d-flex flex-column">
-        <label htmlFor={labelFor} className="ms-3 mb-2">
-          <span>{icon}</span> {label}
+      <div className="booking__form--input fs-3 d-flex flex-column mb-4">
+        <label htmlFor={labelFor} className="ms-1 mb-2">
+          <span>{icon}</span> {label} {span}
         </label>
         <input
           name={name}
@@ -23,6 +27,9 @@ export default function BookingModalConfirmContact({
           maxLength={20}
           pattern={pattern}
           title={title}
+          required={required}
+          placeholder={placeholder}
+          disabled={disabled}
         ></input>
       </div>
     </>
