@@ -48,7 +48,7 @@ export default function BookingModalConfirm() {
                       </p>
                     </div>
                   </div>
-                  <div className="col-10 col-lg-5">
+                  <div className="col-12 col-lg-5">
                     <h2
                       className="h1 fw-bold text-dark mb-5"
                       id="bookingModalConfirmLabel"
@@ -103,7 +103,7 @@ export default function BookingModalConfirm() {
                       placeholder="Enter your phone number"
                     />
                   </div>
-                  <div className="col-10 col-lg-5">
+                  <div className="col-12 col-lg-5">
                     <h2 className="h1 fw-bold text-dark mb-5">
                       Payment details
                     </h2>
@@ -182,7 +182,7 @@ export default function BookingModalConfirm() {
                 </div>
                 <div className="d-flex justify-content-end mt-5 gap-4 px-0">
                   <button
-                    className="modal__button--cancel btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap"
+                    className="modal__button--back btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap"
                     type="button"
                     data-bs-dismiss="modal"
                     aria-label="Close"
@@ -190,7 +190,7 @@ export default function BookingModalConfirm() {
                     Back
                   </button>
                   <button
-                    className="modal__button--continue btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap"
+                    className="modal__button--confirm btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap"
                     data-bs-target="#bookingModalConfirm"
                     data-bs-toggle="modal"
                   >
