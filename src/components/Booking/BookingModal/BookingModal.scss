@@ -16,13 +16,17 @@
       font-size: 2rem !important;
     }
 
-    &--cancel {
+    &--cancel,
+    &--back {
+      &:hover,
       &:hover {
         color: white !important;
       }
     }
 
-    &--continue {
+    &--continue,
+    &--confirm {
+      &:hover,
       &:hover {
         background-color: $secondary !important;
       }

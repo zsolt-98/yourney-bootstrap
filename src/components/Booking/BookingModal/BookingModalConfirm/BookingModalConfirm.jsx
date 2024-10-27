@@ -48,7 +48,7 @@ export default function BookingModalConfirm() {
                       </p>
                     </div>
                   </div>
-                  <div className="col-12 col-lg-5">
+                  <div className="col-12 col-lg-5 mb-5 mb-lg-0">
                     <h2
                       className="h1 fw-bold text-dark mb-5"
                       id="bookingModalConfirmLabel"
@@ -184,8 +184,8 @@ export default function BookingModalConfirm() {
                   <button
                     className="modal__button--back btn btn-outline-primary btn-md text-primary border-2 fs-2 fw-semibold text-capitalize text-nowrap"
                     type="button"
-                    data-bs-dismiss="modal"
-                    aria-label="Close"
+                    data-bs-toggle="modal"
+                    data-bs-target="#bookingModal"
                   >
                     Back
                   </button>
