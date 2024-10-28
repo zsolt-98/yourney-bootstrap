@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import locationData from "../../../assets/data/locationData.js";
+
 import BookingModalForm from "./BookingModalForm.jsx";
 import BookingModalDatesLocations from "./BookingModalDatesLocations.jsx";
 import BookingModalCar from "./BookingModalCar.jsx";
