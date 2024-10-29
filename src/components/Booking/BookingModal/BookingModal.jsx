@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef, useCallback } from "react";
-import locationData from "../../../assets/data/locationData.js";
 import useBookingStore from "../../../store/useBookingStore.js";
 
 import BookingModalForm from "./BookingModalForm.jsx";
@@ -13,42 +12,11 @@ export default function BookingModal() {
   const [isDetailsVisible, setIsDetailsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
 
-  const {
-    form,
-    setPickUpPoint,
-    setDropOffPoint,
-    setPickUpDate,
-    setDropOffDate,
-    setFormUIState,
-    resetForm,
-  } = useBookingStore();
+  const { form, setFormUIState, resetForm } = useBookingStore();
 
   const modalRef = useRef(null);
   const detailsRef = useRef(null);
   const collapseTimeoutRef = useRef(null);
-
-  // Pick-up & Drop-off Location selection
-  const handlePickUpPointChange = (locationCity) => {
-    const location = locationData.find(
-      (loc) => `${loc.city}, ${loc.country}` === locationCity
-    );
-    setPickUpPoint(location || "");
-  };
-
-  const handleDropOffPointChange = (locationCity) => {
-    const location = locationData.find(
-      (loc) => `${loc.city}, ${loc.country}` === locationCity
-    );
-    setDropOffPoint(location || "");
-  };
-
-  const handleDatePickUpChange = (e) => {
-    setPickUpDate(e.target.value);
-  };
-
-  const handleDateDropOffChange = (e) => {
-    setDropOffDate(e.target.value);
-  };
 
   const checkFormValidity = useCallback(() => {
     return (
@@ -154,10 +122,6 @@ export default function BookingModal() {
                 <h2 className="h1 fw-bold text-dark mb-5">Book your ride</h2>
 
                 <BookingModalForm
-                  handlePickUpPointChange={handlePickUpPointChange}
-                  handleDropOffPointChange={handleDropOffPointChange}
-                  handleDatePickUpChange={handleDatePickUpChange}
-                  handleDateDropOffChange={handleDateDropOffChange}
                   handleSeeDetailsClick={handleSeeDetailsClick}
                 />
 

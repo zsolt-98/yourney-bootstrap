@@ -3,15 +3,8 @@ import BookingDates from "../BookingDates.jsx";
 import IconExclamation from "../../react-svg-icons/IconExclamation.jsx";
 import useBookingStore from "../../../store/useBookingStore.js";
 
-export default function BookingModalForm({
-  handlePickUpPointChange,
-  handleDropOffPointChange,
-  handleDatePickUpChange,
-  handleDateDropOffChange,
-  handleSeeDetailsClick,
-}) {
+export default function BookingModalForm({ handleSeeDetailsClick }) {
   const {
-    form: { pickUpPoint, dropOffPoint, pickUpDate, dropOffDate },
     formUI: { isFormValid, detailsButtonClicked },
   } = useBookingStore();
 
@@ -24,10 +17,6 @@ export default function BookingModalForm({
           id="pick-up-location"
           pointType="Pick-up"
           LocationType="pick-up"
-          onChange={(e) =>
-            handlePickUpPointChange(e.target.selectedOptions[0].text)
-          }
-          value={pickUpPoint}
         />
         <BookingLocations
           htmlFor="drop-off-location"
@@ -35,28 +24,18 @@ export default function BookingModalForm({
           id="drop-off-location"
           pointType="Drop-off"
           LocationType="drop-off"
-          onChange={(e) =>
-            handleDropOffPointChange(e.target.selectedOptions[0].text)
-          }
-          value={dropOffPoint}
         />
         <BookingDates
           htmlFor="pick-up-date"
           name="pickUpDate"
           id="pick-up-date"
           dateType="Pick-up"
-          onChange={handleDatePickUpChange}
-          value={pickUpDate}
-          dropOffDate={dropOffDate}
         />
         <BookingDates
           htmlFor="drop-off-date"
           name="dropOffDate"
           id="drop-off-date"
           dateType="Drop-off"
-          onChange={handleDateDropOffChange}
-          value={dropOffDate}
-          pickUpDate={pickUpDate}
         />
         <div
           className={`modal__error--message col ${

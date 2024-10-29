@@ -2,24 +2,23 @@ import { useEffect, useState } from "react";
 import IconCalendar from "../react-svg-icons/IconCalendar";
 import useBookingStore from "../../store/useBookingStore";
 
-export default function BookingDates({
-  htmlFor,
-  name,
-  id,
-  dateType,
-  onChange,
-  value,
-  pickUpDate,
-  dropOffDate,
-}) {
-  // const {
-  //   form: { pickUpDate, dropOffDate },
-  //   setPickUpDate,
-  //   setDropOffDate,
-  // } = useBookingStore();
+export default function BookingDates({ htmlFor, name, id, dateType }) {
+  const {
+    form: { pickUpDate, dropOffDate },
+    setPickUpDate,
+    setDropOffDate,
+  } = useBookingStore();
 
   const [minDateString, setMinDateString] = useState("");
   const [maxDateString, setMaxDateString] = useState("");
+
+  const handleDateChange = (e) => {
+    if (dateType === "Pick-up") {
+      setPickUpDate(e.target.value);
+    } else {
+      setDropOffDate(e.target.value);
+    }
+  };
 
   useEffect(() => {
     // Sets the min pick-up date to be today, and sets the max rental days to be 45 days from the selected pick-up date
@@ -75,8 +74,8 @@ export default function BookingDates({
           className="fs-4 p-3"
           min={minDateString}
           max={maxDateString}
-          onChange={onChange}
-          value={value}
+          onChange={handleDateChange}
+          value={dateType === "Pick-up" ? pickUpDate : dropOffDate}
           onClick={(e) => e.currentTarget.showPicker()}
           disabled={dateType === "Drop-off" && !pickUpDate}
         />

@@ -1,5 +1,6 @@
 import IconLocation from "../react-svg-icons/IconLocation.jsx";
 import locationData from "../../assets/data/locationData.js";
+import useBookingStore from "../../store/useBookingStore.js";
 
 export default function BookingLocations({
   htmlFor,
@@ -7,9 +8,28 @@ export default function BookingLocations({
   name,
   LocationType,
   id,
-  onChange,
-  value,
 }) {
+  const {
+    form: { pickUpPoint, dropOffPoint },
+    setPickUpPoint,
+    setDropOffPoint,
+  } = useBookingStore();
+
+  const handleLocationChange = (e) => {
+    const locationCityCountry = e.target.selectedOptions[0].text;
+    const location = locationData.find(
+      (loc) => `${loc.city}, ${loc.country}` === locationCityCountry
+    );
+
+    if (pointType === "Pick-up") {
+      setPickUpPoint(location || "");
+    } else {
+      setDropOffPoint(location || "");
+    }
+  };
+
+  const value = pointType === "Pick-up" ? pickUpPoint : dropOffPoint;
+
   return (
     <div className="col">
       <div className="booking__form--select fs-3 d-flex flex-column">
@@ -23,7 +43,7 @@ export default function BookingLocations({
           name={name}
           id={id}
           className="fs-4 p-3"
-          onChange={(e) => onChange(e)}
+          onChange={handleLocationChange}
           value={value ? `${value.city}, ${value.country}` : ""}
         >
           <option defaultValue="">Select {LocationType} location</option>
