@@ -1,12 +1,25 @@
 import { useState, useEffect } from "react";
 import vehiclesData from "../assets/data/vehiclesData.js";
+import useBookingStore from "../store/useBookingStore.js";
 
-export default function Vehicles({
-  selectedVehicle,
-  handleVehicleSelect,
-  imageLoaded,
-  setImageLoaded,
-}) {
+export default function Vehicles() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const {
+    vehicle: { selected: selectedVehicle },
+    setSelectedVehicle,
+    toggleModal,
+  } = useBookingStore();
+
+  const currentVehicle = selectedVehicle || vehiclesData[0];
+
+  const handleVehicleSelect = (vehicle) => {
+    if (currentVehicle !== vehicle) {
+      setSelectedVehicle(vehicle);
+      setImageLoaded(false);
+    }
+  };
+
   const preloadImages = (vehicles) => {
     vehicles.forEach(({ imgSource }) => {
       const img = new Image();
@@ -36,7 +49,7 @@ export default function Vehicles({
                   {vehiclesData.map((vehicle) => (
                     <button
                       className={`btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap ${
-                        selectedVehicle === vehicle ? "car__active" : ""
+                        currentVehicle === vehicle ? "car__active" : ""
                       } `}
                       key={vehicle.name}
                       onClick={() => handleVehicleSelect(vehicle)}
@@ -48,8 +61,8 @@ export default function Vehicles({
                 <div className="car__models--table d-flex justify-content-around gap-5 align-items-center mt-6 mt-xxl-0">
                   <div className="car__image--container">
                     <img
-                      src={selectedVehicle.imgSource}
-                      alt={selectedVehicle.name}
+                      src={currentVehicle.imgSource}
+                      alt={currentVehicle.name}
                       style={{ visibility: imageLoaded ? "visible" : "hidden" }}
                       onLoad={() => setImageLoaded(true)}
                     />
@@ -59,13 +72,13 @@ export default function Vehicles({
                       <thead>
                         <tr className="table fs-1">
                           <th colSpan={2}>
-                            ${selectedVehicle.price}{" "}
+                            ${currentVehicle.price}{" "}
                             <span className="fs-2">per day</span>
                           </th>
                         </tr>
                       </thead>
                       <tbody className="fs-3">
-                        {selectedVehicle.details.map(({ label, value }) => (
+                        {currentVehicle.details.map(({ label, value }) => (
                           <tr key={label}>
                             <td className="table__column--left">{label} </td>
                             <td>{value}</td>
@@ -74,11 +87,14 @@ export default function Vehicles({
                       </tbody>
                     </table>
                     <button
-                      className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap w-100 "
+                      className="btn btn-primary btn-md text-white border-0 fs-2 fw-semibold text-capitalize text-nowrap w-100"
                       data-bs-toggle="modal"
                       data-bs-target="#bookingModal"
+                      onClick={() => {
+                        toggleModal();
+                        setSelectedVehicle(currentVehicle);
+                      }}
                     >
-                      {" "}
                       Reserve now
                     </button>
                   </div>

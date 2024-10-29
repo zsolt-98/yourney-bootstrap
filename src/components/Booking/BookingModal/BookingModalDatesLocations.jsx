@@ -1,39 +1,46 @@
 import { useEffect, useState } from "react";
+import useBookingStore from "../../../store/useBookingStore";
 
-export default function BookingModalDatesLocations({
-  pickUpDate,
-  dropOffDate,
-  pickUpPoint,
-  dropOffPoint,
-}) {
+export default function BookingModalDatesLocations() {
+  const { form } = useBookingStore();
   const [displayData, setDisplayData] = useState({
-    pickUpDate,
-    dropOffDate,
-    pickUpPoint,
-    dropOffPoint,
+    pickUpDate: form.pickUpDate,
+    dropOffDate: form.dropOffDate,
+    pickUpPoint: form.pickUpPoint,
+    dropOffPoint: form.dropOffPoint,
   });
 
   useEffect(() => {
     let timeoutDelay;
     // If any data is being removed (becoming empty/null), the update is delayed
-    if (!pickUpDate || !dropOffDate || !pickUpPoint || !dropOffPoint) {
+    if (
+      !form.pickUpDate ||
+      !form.dropOffDate ||
+      !form.pickUpPoint ||
+      !form.dropOffPoint
+    ) {
       timeoutDelay = setTimeout(() => {
-        setDisplayData((pickUpDate, dropOffDate, pickUpPoint, dropOffPoint));
+        setDisplayData({
+          pickUpDate: form.pickUpDate,
+          dropOffDate: form.dropOffDate,
+          pickUpPoint: form.pickUpPoint,
+          dropOffPoint: form.dropOffPoint,
+        });
       }, 800);
     } else {
       // If data is being added/changed, update is immediate
       setDisplayData({
-        pickUpDate,
-        dropOffDate,
-        pickUpPoint,
-        dropOffPoint,
+        pickUpDate: form.pickUpDate,
+        dropOffDate: form.dropOffDate,
+        pickUpPoint: form.pickUpPoint,
+        dropOffPoint: form.dropOffPoint,
       });
     }
 
     return () => {
       if (timeoutDelay) clearTimeout(timeoutDelay);
     };
-  }, [pickUpDate, dropOffDate, pickUpPoint, dropOffPoint]);
+  }, [form]);
 
   // Date display format for Rental Details (Dates & Times section)
   const formatDate = (date) => {

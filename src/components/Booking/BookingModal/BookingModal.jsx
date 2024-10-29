@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import locationData from "../../../assets/data/locationData.js";
+import useBookingStore from "../../../store/useBookingStore.js";
 
 import BookingModalForm from "./BookingModalForm.jsx";
 import BookingModalDatesLocations from "./BookingModalDatesLocations.jsx";
@@ -7,16 +8,20 @@ import BookingModalCar from "./BookingModalCar.jsx";
 import BookingModalPrice from "./BookingModalPrice.jsx";
 import BookingModalConfirm from "./BookingModalConfirm/BookingModalConfirm.jsx";
 
-export default function BookingModal({ selectedVehicle }) {
-  const [pickUpPoint, setPickUpPoint] = useState("");
-  const [dropOffPoint, setDropOffPoint] = useState("");
-  const [pickUpDate, setPickUpDate] = useState("");
-  const [dropOffDate, setDropOffDate] = useState("");
+export default function BookingModal() {
   const [showDetails, setShowDetails] = useState(false);
   const [isDetailsVisible, setIsDetailsVisible] = useState(false);
   const [isAnimating, setIsAnimating] = useState(false);
-  const [isFormValid, setIsFormValid] = useState(true);
-  const [detailsButtonClicked, setDetailsButtonClicked] = useState(false);
+
+  const {
+    form,
+    setPickUpPoint,
+    setDropOffPoint,
+    setPickUpDate,
+    setDropOffDate,
+    setFormUIState,
+    resetForm,
+  } = useBookingStore();
 
   const modalRef = useRef(null);
   const detailsRef = useRef(null);
@@ -46,16 +51,23 @@ export default function BookingModal({ selectedVehicle }) {
   };
 
   const checkFormValidity = useCallback(() => {
-    return pickUpPoint && dropOffPoint && pickUpDate && dropOffDate;
-  }, [pickUpPoint, dropOffPoint, pickUpDate, dropOffDate]);
+    return (
+      form.pickUpPoint &&
+      form.dropOffPoint &&
+      form.pickUpDate &&
+      form.dropOffDate
+    );
+  }, [form]);
 
-  const startCollapseAnimation = () => {
+  const startCollapseAnimation = useCallback(() => {
     // Clear any existing collapse timeout
     if (collapseTimeoutRef.current) {
       clearTimeout(collapseTimeoutRef.current);
     }
 
-    setIsFormValid(false);
+    setFormUIState({
+      isFormValid: false,
+    });
     setIsDetailsVisible(false);
     setIsAnimating(true);
 
@@ -64,14 +76,14 @@ export default function BookingModal({ selectedVehicle }) {
       setIsAnimating(false);
       collapseTimeoutRef.current = null;
     }, 800);
-  };
+  }, [setFormUIState]);
 
   const handleSeeDetailsClick = (e) => {
     e.preventDefault();
-    setDetailsButtonClicked(true);
+    setFormUIState({ detailsButtonClicked: true });
 
     if (checkFormValidity()) {
-      setIsFormValid(true);
+      setFormUIState({ isFormValid: true });
       setIsDetailsVisible(true);
       setShowDetails(true);
     } else {
@@ -91,21 +103,22 @@ export default function BookingModal({ selectedVehicle }) {
     } else if (detailsRef.current) {
       detailsRef.current.style.maxHeight = "0px";
     }
-  }, [checkFormValidity, isDetailsVisible, isAnimating]);
+  }, [
+    checkFormValidity,
+    isDetailsVisible,
+    isAnimating,
+    startCollapseAnimation,
+  ]);
 
-  const resetState = () => {
+  const resetState = useCallback(() => {
     if (collapseTimeoutRef.current) {
       clearTimeout(collapseTimeoutRef.current);
     }
     setShowDetails(false);
+    setIsDetailsVisible(false);
     setIsAnimating(false);
-    setPickUpPoint("");
-    setDropOffPoint("");
-    setPickUpDate("");
-    setDropOffDate("");
-    setIsFormValid(true);
-    setDetailsButtonClicked(false);
-  };
+    resetForm();
+  }, [resetForm]);
 
   useEffect(() => {
     const modalElement = modalRef.current;
@@ -116,7 +129,7 @@ export default function BookingModal({ selectedVehicle }) {
     return () => {
       modalElement.removeEventListener("hidden.bs.modal", handleModalHidden);
     };
-  }, []);
+  }, [resetState]);
 
   return (
     <>
@@ -146,12 +159,6 @@ export default function BookingModal({ selectedVehicle }) {
                   handleDatePickUpChange={handleDatePickUpChange}
                   handleDateDropOffChange={handleDateDropOffChange}
                   handleSeeDetailsClick={handleSeeDetailsClick}
-                  pickUpPoint={pickUpPoint}
-                  dropOffPoint={dropOffPoint}
-                  pickUpDate={pickUpDate}
-                  dropOffDate={dropOffDate}
-                  isFormValid={isFormValid}
-                  detailsButtonClicked={detailsButtonClicked}
                 />
 
                 <div
@@ -168,20 +175,11 @@ export default function BookingModal({ selectedVehicle }) {
                         Rental details
                       </h2>
                       <div className="row mx-0 text-dark pt-4 justify-content-between">
-                        <BookingModalDatesLocations
-                          pickUpDate={pickUpDate}
-                          dropOffDate={dropOffDate}
-                          pickUpPoint={pickUpPoint}
-                          dropOffPoint={dropOffPoint}
-                        />
+                        <BookingModalDatesLocations />
                         <div className="col-lg-12 col-xl-7 px-0 mt-5 mt-xl-0">
-                          <BookingModalCar selectedVehicle={selectedVehicle} />
+                          <BookingModalCar />
                           <div className="row mx-0 border rounded p-3 mt-5">
-                            <BookingModalPrice
-                              selectedVehicle={selectedVehicle}
-                              pickUpDate={pickUpDate}
-                              dropOffDate={dropOffDate}
-                            />
+                            <BookingModalPrice />
                           </div>
                           <div className="d-flex justify-content-end mt-5 gap-4 px-0">
                             <button

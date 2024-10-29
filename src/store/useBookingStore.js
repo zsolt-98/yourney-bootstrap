@@ -1,4 +1,5 @@
 import { create } from "zustand";
+import vehiclesData from "../assets/data/vehiclesData";
 
 const useBookingStore = create((set) => ({
   // Form state
@@ -11,15 +12,15 @@ const useBookingStore = create((set) => ({
 
   // Form UI state
   formUI: {
-    showDetails: false,
-    isDetailsVisible: false,
-    isAnimating: false,
     isFormValid: true,
     detailsButtonClicked: false,
+    isModalOpen: false,
   },
 
-  // Selected vehicle
-  selectedVehicle: null,
+  // Vehicle state
+  vehicle: {
+    selected: vehiclesData[0],
+  },
 
   // Actions
   setPickUpPoint: (point) =>
@@ -27,6 +28,14 @@ const useBookingStore = create((set) => ({
       form: {
         ...state.form,
         pickUpPoint: point,
+      },
+    })),
+
+  setDropOffPoint: (point) =>
+    set((state) => ({
+      form: {
+        ...state.form,
+        dropOffPoint: point,
       },
     })),
 
@@ -46,8 +55,6 @@ const useBookingStore = create((set) => ({
       },
     })),
 
-  setSelectedVehicle: (vehicle) => set({ selectedVehicle: vehicle }),
-
   setFormUIState: (updates) =>
     set((state) => ({
       formUI: {
@@ -56,22 +63,40 @@ const useBookingStore = create((set) => ({
       },
     })),
 
-  resetForm: () =>
+  setSelectedVehicle: (vehicle) =>
     set((state) => ({
-      form: {
-        pickUpPoint: "",
-        dropOffPoint: "",
-        pickUpDate: "",
-        dropOffDate: "",
-      },
-      formUI: {
-        showDetails: false,
-        isDetailsVisible: false,
-        isAnimating: false,
-        isFormValid: true,
-        detailsButtonClicked: false,
+      vehicle: {
+        ...state.vehicle,
+        selected: vehicle,
       },
     })),
+
+  toggleModal: () =>
+    set((state) => ({
+      vehicle: {
+        ...state.formUI,
+        isModalOpen: !state.vehicle.isModalOpen,
+      },
+    })),
+
+  resetForm: () =>
+    set(
+      () => ({
+        form: {
+          pickUpPoint: "",
+          dropOffPoint: "",
+          pickUpDate: "",
+          dropOffDate: "",
+        },
+        formUI: {
+          isFormValid: true,
+          detailsButtonClicked: false,
+          isModalOpen: false,
+        },
+      }),
+      false,
+      "resetForm"
+    ),
 }));
 
 export default useBookingStore;

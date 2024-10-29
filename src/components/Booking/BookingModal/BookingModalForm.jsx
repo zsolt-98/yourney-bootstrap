@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
 import BookingLocations from "../BookingLocations.jsx";
 import BookingDates from "../BookingDates.jsx";
 import IconExclamation from "../../react-svg-icons/IconExclamation.jsx";
+import useBookingStore from "../../../store/useBookingStore.js";
 
 export default function BookingModalForm({
   handlePickUpPointChange,
@@ -9,13 +9,12 @@ export default function BookingModalForm({
   handleDatePickUpChange,
   handleDateDropOffChange,
   handleSeeDetailsClick,
-  pickUpPoint,
-  dropOffPoint,
-  pickUpDate,
-  dropOffDate,
-  isFormValid,
-  detailsButtonClicked,
 }) {
+  const {
+    form: { pickUpPoint, dropOffPoint, pickUpDate, dropOffDate },
+    formUI: { isFormValid, detailsButtonClicked },
+  } = useBookingStore();
+
   return (
     <form action="">
       <div className="row row-cols-1 row-cols-lg-2 g-4">

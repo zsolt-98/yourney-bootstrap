@@ -3,8 +3,15 @@ import IconPerson from "../../react-svg-icons/IconPerson.jsx";
 import IconSpeedometer from "../../react-svg-icons/IconSpeedometer.jsx";
 import IconList from "../../react-svg-icons/IconList.jsx";
 import IconCheck from "../../react-svg-icons/IconCheck.jsx";
+import useBookingStore from "../../../store/useBookingStore.js";
 
-export default function BookingModalCar({ selectedVehicle }) {
+export default function BookingModalCar() {
+  const {
+    vehicle: { selected: selectedVehicle },
+  } = useBookingStore();
+
+  if (!selectedVehicle) return null;
+
   const transmission = selectedVehicle.details.find(
     (detail) => detail.label === "Transmission"
   );

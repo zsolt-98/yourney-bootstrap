@@ -1,8 +1,13 @@
-export default function BookingModalPrice({
-  selectedVehicle,
-  pickUpDate,
-  dropOffDate,
-}) {
+import useBookingStore from "../../../store/useBookingStore";
+
+export default function BookingModalPrice() {
+  const {
+    form: { pickUpDate, dropOffDate },
+    vehicle: { selected: selectedVehicle },
+  } = useBookingStore();
+
+  if (!selectedVehicle) return null;
+
   // Calculating the price of the rental
   const firstDay = new Date(pickUpDate);
   const lastDay = new Date(dropOffDate);

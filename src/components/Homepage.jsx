@@ -1,4 +1,3 @@
-import { useState } from "react";
 import vehiclesData from "../assets/data/vehiclesData.js";
 
 import Nav from "./Nav.jsx";
@@ -14,38 +13,13 @@ import DownloadApp from "./DownloadApp.jsx";
 import Footer from "./Footer.jsx";
 
 export default function Homepage() {
-  const [selectedVehicle, setSelectedVehicle] = useState(vehiclesData[0]);
-  const [imageLoaded, setImageLoaded] = useState(false);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleVehicleSelect = (vehicle) => {
-    setSelectedVehicle((prevVehicle) => {
-      if (prevVehicle !== vehicle) {
-        setImageLoaded(false);
-        return vehicle;
-      }
-      return prevVehicle;
-    });
-  };
-
-  const toggleModal = () => {
-    setIsModalOpen(!isModalOpen);
-  };
-
   return (
     <>
       <Nav />
       <Hero />
-      <Booking selectedVehicle={selectedVehicle} modalOpen={isModalOpen} />
+      <Booking />
       <Cards />
-      <Vehicles
-        selectedVehicle={selectedVehicle}
-        setSelectedVehicle={setSelectedVehicle}
-        handleVehicleSelect={handleVehicleSelect}
-        imageLoaded={imageLoaded}
-        setImageLoaded={setImageLoaded}
-        toggleModal={toggleModal}
-      />
+      <Vehicles />
       <Banner />
       <WhyChooseUs />
       <Testimonials />

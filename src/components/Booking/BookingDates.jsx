@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import IconCalendar from "../react-svg-icons/IconCalendar";
+import useBookingStore from "../../store/useBookingStore";
 
 export default function BookingDates({
   htmlFor,
@@ -11,6 +12,12 @@ export default function BookingDates({
   pickUpDate,
   dropOffDate,
 }) {
+  // const {
+  //   form: { pickUpDate, dropOffDate },
+  //   setPickUpDate,
+  //   setDropOffDate,
+  // } = useBookingStore();
+
   const [minDateString, setMinDateString] = useState("");
   const [maxDateString, setMaxDateString] = useState("");
 
