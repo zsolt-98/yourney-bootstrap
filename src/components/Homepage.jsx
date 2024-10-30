@@ -3,6 +3,7 @@ import vehiclesData from "../assets/data/vehiclesData.js";
 import Nav from "./Nav.jsx";
 import Hero from "./Hero.jsx";
 import Booking from "./Booking/Booking.jsx";
+import BookingModal from "./Booking/BookingModal/BookingModal.jsx";
 import Cards from "./Cards.jsx";
 import Vehicles from "./Vehicles.jsx";
 import Banner from "./Banner.jsx";
@@ -17,7 +18,8 @@ export default function Homepage() {
     <>
       <Nav />
       <Hero />
-      <Booking />
+      {/* <Booking /> */}
+      <BookingModal />
       <Cards />
       <Vehicles />
       <Banner />

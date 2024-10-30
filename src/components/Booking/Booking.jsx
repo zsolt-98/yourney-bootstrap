@@ -3,7 +3,6 @@ import IconCheckCircle from "../react-svg-icons/IconCheckCircle.jsx";
 import BookingSelectVehicle from "../Booking/BookingSelectVehicle.jsx";
 import BookingLocations from "../Booking/BookingLocations.jsx";
 import BookingDates from "../Booking/BookingDates.jsx";
-import BookingModal from "./BookingModal/BookingModal.jsx";
 
 export default function Booking() {
   return (
@@ -57,7 +56,6 @@ export default function Booking() {
             </form>
           </div>
         </div>
-        <BookingModal />
       </section>
     </>
   );
